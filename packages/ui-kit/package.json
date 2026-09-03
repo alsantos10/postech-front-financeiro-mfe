@@ -1,0 +1,11 @@
+{
+    "name": "@dash/ui-kit",
+    "version": "0.0.0",
+    "description": "UI component library for the Dash application",
+    "private": true,
+    "peerDependencies": {
+        "react": "*",
+        "react-dom": "*",
+        "lucide-react": "*"
+    }
+}
