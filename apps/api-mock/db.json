@@ -1,0 +1,363 @@
+{
+  "users": [
+    {
+      "password": "123456",
+      "name": "Maria Turva",
+      "email": "maria@turva.com",
+      "id": "4Th8p27K-Bc"
+    },
+    {
+      "password": "123456",
+      "name": "Jose da Silva",
+      "email": "jose@silva.com",
+      "id": "iSX7h7u9Ijw"
+    },
+    {
+      "name": "Ze Mane",
+      "email": "ze@mane.com",
+      "password": "123456",
+      "id": "L6HYCWwTlGY"
+    },
+    {
+      "name": "Fulano",
+      "email": "fulano@email.com",
+      "password": "123456",
+      "id": "IJB9F23ofw4"
+    },
+    {
+      "name": "Fulano",
+      "email": "fulado@detal.com",
+      "password": "123456",
+      "id": "XidQTZrs0Jo"
+    },
+    {
+      "name": "indiana@jones.com",
+      "email": "indiana@jones.com",
+      "password": "123456",
+      "id": "rmEMP1_CIgA"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "1",
+      "userId": "4Th8p27K-Bc",
+      "type": "DEPOSITO",
+      "amount": 100,
+      "transactionDate": "2023-01-01T00:00:00Z",
+      "description": "Transaction 1"
+    },
+    {
+      "id": "2",
+      "userId": "L6HYCWwTlGY",
+      "type": "INVESTIMENTO",
+      "amount": 200,
+      "transactionDate": "2023-01-02T00:00:00Z",
+      "description": "Transaction 2"
+    },
+    {
+      "id": "3",
+      "userId": "iSX7h7u9Ijw",
+      "type": "TRANSFERENCIA",
+      "amount": 300,
+      "transactionDate": "2023-01-03T00:00:00Z",
+      "description": "Transaction 3"
+    },
+    {
+      "id": "4",
+      "userId": "L6HYCWwTlGY",
+      "type": "DEPOSITO",
+      "amount": 400,
+      "transactionDate": "2023-01-04T00:00:00Z",
+      "description": "Transaction 4"
+    },
+    {
+      "id": "5",
+      "userId": "iSX7h7u9Ijw",
+      "type": "PAGAMENTO",
+      "amount": 100,
+      "transactionDate": "2023-01-08T00:00:00Z",
+      "description": "Transaction 5"
+    },
+    {
+      "description": "112121",
+      "amount": 11,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-07T05:10:57.630Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "axcusiMYUD0"
+    },
+    {
+      "description": "dsadsa",
+      "amount": 221,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-07T05:12:10.820Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "O_NDO2hWWyw"
+    },
+    {
+      "description": "yuiyi",
+      "amount": 676,
+      "type": "PAGAMENTO",
+      "transactionDate": "2026-08-07T15:32:43.338Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "rjle6quBFjc"
+    },
+    {
+      "description": "uiuiui",
+      "amount": 767,
+      "type": "TRANSFERENCIA",
+      "transactionDate": "2026-08-07T15:34:06.353Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "ZcFs-z09Eds"
+    },
+    {
+      "description": "sadasd",
+      "amount": 454,
+      "type": "PAGAMENTO",
+      "transactionDate": "2026-08-10T04:50:19.216Z",
+      "userId": "IJB9F23ofw4",
+      "id": "abDRvQSi0eQ"
+    },
+    {
+      "description": "Agora Vai",
+      "amount": 444,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-08T07:19:20.137Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "ikqzZGpsWB0"
+    },
+    {
+      "description": "ewrew",
+      "amount": 222,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-10T04:52:00.470Z",
+      "userId": "IJB9F23ofw4",
+      "id": "UYecLA4ei1g"
+    },
+    {
+      "description": "teste",
+      "amount": 111,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-25T01:21:35.677Z",
+      "userId": "rmEMP1_CIgA",
+      "id": "AHvAGhaL3m0"
+    },
+    {
+      "description": "trtrty",
+      "amount": 16,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-28T22:05:36.590Z",
+      "userId": "iSX7h7u9Ijw",
+      "id": "3PJ0Dj9Vdc8"
+    },
+    {
+      "description": "teste",
+      "amount": 55,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-28T22:06:04.093Z",
+      "userId": "iSX7h7u9Ijw",
+      "id": "cT7O-eR5O_I"
+    },
+    {
+      "description": "jhjhjh",
+      "amount": 120,
+      "type": "INVESTIMENTO",
+      "transactionDate": "2026-08-28T22:08:11.465Z",
+      "userId": "iSX7h7u9Ijw",
+      "id": "hxGQi0L6W68"
+    },
+    {
+      "description": "iuiui",
+      "amount": 444,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-28T22:08:41.057Z",
+      "userId": "iSX7h7u9Ijw",
+      "id": "K_H4A3PiZ5c"
+    },
+    {
+      "description": "XXXX",
+      "amount": 12,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:10:46.093Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "vfQQqJwgtWs"
+    },
+    {
+      "description": "EEEE",
+      "amount": 321,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:14:09.599Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "2r2aOAIHBJE"
+    },
+    {
+      "description": "wqew",
+      "amount": 5,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:19:48.013Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "aXBuTbY6S5g"
+    },
+    {
+      "description": "dsadasd",
+      "amount": 2121,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:20:16.498Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "OgX13rIfyz0"
+    },
+    {
+      "description": "ewqewq",
+      "amount": 2121,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:29:19.314Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "6GMJ7Pd9tQU"
+    },
+    {
+      "description": "121",
+      "amount": 2090,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:29:32.497Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "55webu4nNhI"
+    },
+    {
+      "description": "dsads",
+      "amount": 21,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:30:15.642Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "FrRvH2YCP4w"
+    },
+    {
+      "description": "wqe",
+      "amount": 21,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:31:11.326Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "64Uj-MNgVcY"
+    },
+    {
+      "description": "dsads",
+      "amount": 321,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:32:06.338Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "z-UYQ90xcOk"
+    },
+    {
+      "description": "ewq",
+      "amount": 121,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:33:36.421Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "vznEZgLbBSE"
+    },
+    {
+      "description": "dsadsa",
+      "amount": 21,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:35:53.995Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "N_SSVlh3xKE"
+    },
+    {
+      "description": "sdsa",
+      "amount": 21,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:41:26.218Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "IUpc2XNJtz4"
+    },
+    {
+      "description": "dsada",
+      "amount": 13,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:55:50.675Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "cM6sbQJpwPA"
+    },
+    {
+      "description": "RRR",
+      "amount": 44,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T04:59:26.325Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "yBV4LMahyS4"
+    },
+    {
+      "description": "teste",
+      "amount": 1000,
+      "type": "PAGAMENTO",
+      "transactionDate": "2026-08-31T04:59:58.819Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "6ywGmbUIkvM"
+    },
+    {
+      "description": "Primeira",
+      "amount": 20,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T05:00:53.338Z",
+      "userId": "XidQTZrs0Jo",
+      "id": "KaD5Rp8TYhU"
+    },
+    {
+      "description": "iuiui",
+      "amount": 10,
+      "type": "TRANSFERENCIA",
+      "transactionDate": "2026-08-31T05:03:15.541Z",
+      "userId": "XidQTZrs0Jo",
+      "id": "lqyW2RgNzzM"
+    },
+    {
+      "description": "Aha",
+      "amount": 13,
+      "type": "TRANSFERENCIA",
+      "transactionDate": "2026-08-31T05:14:08.283Z",
+      "userId": "XidQTZrs0Jo",
+      "id": "ECt4O_kj07Y"
+    },
+    {
+      "description": "we",
+      "amount": 33,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T05:16:43.100Z",
+      "userId": "XidQTZrs0Jo",
+      "id": "lXB80gLTGKo"
+    },
+    {
+      "description": "ww",
+      "amount": 2,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T05:19:30.342Z",
+      "userId": "XidQTZrs0Jo",
+      "id": "4p6TsVJunf0"
+    },
+    {
+      "description": "qwq",
+      "amount": 4,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T05:19:41.638Z",
+      "userId": "XidQTZrs0Jo",
+      "id": "vM4vVHy6v2U"
+    },
+    {
+      "description": "dsds",
+      "amount": 12,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-08-31T05:27:31.038Z",
+      "userId": "XidQTZrs0Jo",
+      "id": "iySaovghVkw"
+    },
+    {
+      "description": "trtrty",
+      "amount": 14,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-09-01T05:29:33.528Z",
+      "userId": "L6HYCWwTlGY",
+      "id": "b2UwqsaA7kg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
