@@ -1,10 +1,10 @@
 "use client";
 
-import { TypeTransaction } from "@/core/entities/Transactions";
-import { User } from "@/core/entities/User";
-import { UserTransaction } from "@/core/entities/UserTransactions";
-import { NextAuthRepository } from "@/infra/repositories/NextAuthRepository";
-import { NextTransactionRepository } from "@/infra/repositories/NextTransactionRepository";
+import { TypeTransaction } from "@dash/core/entities/Transactions";
+import { User } from "@dash/core/entities/User";
+import { UserTransaction } from "@dash/core/entities/UserTransactions";
+import { NextAuthRepository } from "@dash/auth/repository/NextAuthRepository";
+import { NextTransactionRepository } from "@dash/auth/repository/NextTransactionRepository";
 import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from "react";
 
 interface TransactionContextData {

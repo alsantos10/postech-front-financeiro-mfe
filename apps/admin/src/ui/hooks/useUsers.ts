@@ -1,9 +1,9 @@
 "use client"
 
-import { OrderType } from "@/core/entities/DataGrid";
-import { Paginated } from "@/core/entities/Paginated";
-import { User } from "@/core/entities/User";
-import { ListUsersUseCase } from "@/core/usecases/GetUsersUseCase";
+import { OrderType } from "@dash/core/entities/DataGrid";
+import { Paginated } from "@dash/core/entities/Paginated";
+import { User } from "@dash/core/entities/User";
+import { ListUsersUseCase } from "@dash/core/usecases/GetUsersUseCase";
 import { NextUserRepository } from "@/infra/repositories/NextUserRepository"
 import { useCallback, useEffect, useState } from "react";
 

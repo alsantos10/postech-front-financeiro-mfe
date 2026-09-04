@@ -1,7 +1,7 @@
 "use client";
 
-import { User } from "@/core/entities/User";
-import { NextAuthRepository } from "@/infra/repositories/NextAuthRepository";
+import { User } from "@dash/core/entities/User";
+import { NextAuthRepository } from "@dash/auth/repository/NextAuthRepository";
 import { createContext, ReactNode, useCallback, useContext, useEffect, useState } from "react";
 
 interface AuthContextData {
@@ -43,7 +43,10 @@ export function AuthProvider({children}: {children: ReactNode}) {
         setUser(null);
     }, []);
 
-    const forgotPassword = useCallback(async (email: string, password: string) => {
+    const forgotPassword = useCallback(async (email: string, password: string, passwordConfirm: string) => {
+        if (password !== passwordConfirm) {
+            throw new Error("As senhas não coincidem");
+        }
         await authRepository.forgotPassword(email, password);
     }, []);
 

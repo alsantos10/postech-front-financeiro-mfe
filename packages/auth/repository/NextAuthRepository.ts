@@ -1,6 +1,6 @@
-import { User } from "@/core/entities/User";
-import { AuthError } from "@/core/errors/AuthError";
-import { AuthRepository } from "@/core/ports/AuthRepository";
+import { User } from "@dash/core/entities/User";
+import { AuthError } from "@dash/core/errors/AuthError";
+import { AuthRepository } from "@dash/core/ports/AuthRepository";
 
 export class NextAuthRepository implements AuthRepository {
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import { AuthProvider } from "@/ui/context/AuthContext";
+import { AuthProvider } from "@dash/auth/context/AuthContext";
 import { PublicShell } from "./PublicShell";
 
 const geistSans = Geist({
@@ -28,9 +28,9 @@ export default function RootLayout({
   children, auth, user, forgot
 }: Readonly<{
   children: React.ReactNode;
-  auth: React.ReactNode;
-  user: React.ReactNode;
-  forgot: React.ReactNode;
+  auth?: React.ReactNode;
+  user?: React.ReactNode;
+  forgot?: React.ReactNode;
 }>) {
   return (
     <html

@@ -1,7 +1,7 @@
-import { IListDatagridFilters, OrderType } from "@/core/entities/DataGrid";
-import { User } from "@/core/entities/User";
-import { UserError } from "@/core/errors/UserError";
-import { Paginated } from "@/core/entities/Paginated";
+import { IListDatagridFilters, OrderType } from "@dash/core/entities/DataGrid";
+import { User } from "@dash/core/entities/User";
+import { UserError } from "@dash/core/errors/UserError";
+import { Paginated } from "@dash/core/entities/Paginated";
 
 const JSON_SERVER_URL = process.env.JSON_SERVER_URL || "http://localhost:3001";
 

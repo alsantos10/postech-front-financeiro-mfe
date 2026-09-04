@@ -1,8 +1,8 @@
 "use client"
 
 import Link from 'next/link';
-import Button from '../shared/Button';
-import { useAuth } from '@/ui/hooks/useAuth';
+import Button from '@dash/ui-kit/Button';
+import { useAuth } from '@dash/auth/context/AuthContext';
 import { useState } from 'react';
 import { redirect, useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';

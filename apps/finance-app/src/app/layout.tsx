@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import { AuthGuard } from "@dash/auth/context/AuthContext";
+import { AuthGuard } from "@dash/dashboard-ui/AuthGuard";
 import { DashboardProviders } from "@/ui/components/dashboard/DashboardProviders";
 import { DashboardFooter } from "@/ui/components/dashboard/DashboardFooter";
 

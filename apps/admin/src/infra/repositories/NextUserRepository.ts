@@ -1,8 +1,8 @@
-import { UserError } from "@/core/errors/UserError";
-import { UserRepository } from "@/core/ports/UserRepository";
-import { Paginated } from './../../core/entities/Paginated';
-import { User } from "@/core/entities/User";
-import { IListDatagridFilters } from "@/core/entities/DataGrid";
+import { UserError } from "@dash/core/errors/UserError";
+import { UserRepository } from "@dash/core/ports/UserRepository";
+import { Paginated } from '@dash/core/entities/Paginated';
+import { User } from "@dash/core/entities/User";
+import { IListDatagridFilters } from "@dash/core/entities/DataGrid";
 
 export class NextUserRepository implements UserRepository {
 

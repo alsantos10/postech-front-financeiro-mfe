@@ -1,13 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Modal from "@/ui/modal";
-import { Input } from "../shared/Input";
-import Button from "../shared/Button";
-import { useAuth } from "@/ui/context/AuthContext";
+import Modal from "@dash/ui-kit/Modal";
+import { Input } from "@dash/ui-kit/Input";
+import Button from "@dash/ui-kit/Button";
+import { useAuth } from "@dash/auth/context/AuthContext";
 import { LoginFormData, loginSchema } from "@/ui/schemas/loginSchema";
 import Image from "next/image";
-import { toast } from "react-toastify";
 
 interface LoginModalProps {
     onClose: () => void;
@@ -20,8 +19,6 @@ export function LoginModal({
 }: LoginModalProps) {
     const { login } = useAuth();
     const [ error, setError ] = useState<string | null>(null);
-    const notify = () => toast.success("Login realizado com sucesso!")
-
     const {
         register,
         handleSubmit,
@@ -36,7 +33,6 @@ export function LoginModal({
         try {
             setError(null);
             await login(data.email, data.password);
-            notify();
             reset();
             onClose();
             window.location.href = "/painel";
@@ -46,7 +42,7 @@ export function LoginModal({
     }
 
     return (
-        <Modal onClose={onClose}>
+        <Modal isOpen={true} onClose={onClose}>
             <div className="flex flex-col items-center p-4">
                 <Image src="/IlustraCadastro.svg" alt="Ilustração de login" width={220} height={220} preload={true} />
             </div>

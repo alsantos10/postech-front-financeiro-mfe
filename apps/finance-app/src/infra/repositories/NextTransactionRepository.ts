@@ -1,7 +1,7 @@
-import { Paginated } from "@/core/entities/Paginated";
-import { UserTransaction } from "@/core/entities/UserTransactions";
-import { TransactionError } from "@/core/errors/TransactionError";
-import { ListTransactionsParams, TransactionRepository } from "@/core/ports/TransactionRepository";
+import { Paginated } from "@dash/core/entities/Paginated";
+import { UserTransaction } from "@dash/core/entities/UserTransactions";
+import { TransactionError } from "@dash/core/errors/TransactionError";
+import { ListTransactionsParams, TransactionRepository } from "@dash/core/ports/TransactionRepository";
 
 export class NextTransactionRepository implements TransactionRepository {
     getTransactionById(transactionId: string): Promise<UserTransaction | null> {

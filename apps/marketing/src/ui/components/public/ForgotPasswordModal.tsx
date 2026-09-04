@@ -1,11 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Modal from "@ui/modal";
-import { Input } from "../shared/Input";
-import Button from "../shared/Button";
+import Modal from "@dash/ui-kit/Modal";
+import { Input } from "@dash/ui-kit/Input";
+import Button from "@dash/ui-kit/Button";
 import { ForgotPasswordFormData, forgotPasswordSchema } from "../../schemas/forgotPasswordSchema";
-import { useAuth } from "@/ui/context/AuthContext";
+import { useAuth } from "@dash/auth/context/AuthContext";
 
 interface ForgotPasswordModalProps {
     onClose: () => void;
@@ -46,7 +46,7 @@ export function ForgotPasswordModal({onClose, onOpenLogin}: ForgotPasswordModalP
     }
 
     return (
-        <Modal onClose={onClose} title="Esqueci a senha">
+        <Modal isOpen={true} onClose={onClose} title="Esqueci a senha">
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <Input 
                     label="E-mail" 

@@ -1,6 +1,6 @@
 import { fetchUsers } from "@/infra/api/JsonUserService";
 import { NextRequest, NextResponse } from "next/server";
-import { OrderType } from "@/core/entities/DataGrid";
+import { OrderType } from "@dash/core/entities/DataGrid";
 
 export async function GET(request: NextRequest) {
     try {

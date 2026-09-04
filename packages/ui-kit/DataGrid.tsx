@@ -1,11 +1,10 @@
 "use client";
 
-import { DataGridColumn, DataGridProps, OrderType } from "@/core/entities/DataGrid";
+import { DataGridColumn, DataGridProps, OrderType } from "@dash/core/entities/DataGrid";
 import { FormEvent, useState } from "react";
 import { Input } from "./Input";
 import Button from "./Button";
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, Search } from "lucide-react";
-import { TypeTransaction } from "@/core/entities/Transactions";
 
 export function DataGrid<T> ({
     columns,

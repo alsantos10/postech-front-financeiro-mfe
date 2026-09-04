@@ -1,7 +1,8 @@
 "use client";
 
 import { User } from "@dash/core/entities/User";
-import { DataGrid, DataGridColumn } from '@dash/ui-kit/DataGrid';
+import { DataGrid } from '@dash/ui-kit/DataGrid';
+import { DataGridColumn } from '@dash/core/entities/DataGrid';
 import { useUsers } from '@/ui/hooks/useUsers';
 
 const columnsGrid: DataGridColumn<User>[] = [

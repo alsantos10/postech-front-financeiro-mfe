@@ -1,14 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Modal from "@ui/modal";
-import { Input } from "../shared/Input";
-import Button from "../shared/Button";
-import { useAuth } from "@/ui/context/AuthContext";
+import Modal from "@dash/ui-kit/Modal";
+import { Input } from "@dash/ui-kit/Input";
+import Button from "@dash/ui-kit/Button";
+import { InputCheckbox } from "@dash/ui-kit/InputCheckbox";
+import { useAuth } from "@dash/auth/context/AuthContext";
 import { RegisterFormData, registerSchema } from "@/ui/schemas/registerSchema";
 import Image from "next/image";
-import { InputCheckbox } from "../shared/InputCheckbox";
-import { Primary } from "@/stories/Button.stories";
 
 interface RegisterModalProps {
     onClose: () => void;
@@ -51,7 +50,7 @@ export function RegisterModal({
     }
 
     return (
-        <Modal onClose={onClose}>
+        <Modal isOpen={true} onClose={onClose}>
             <div className="flex flex-col items-center p-4">
                 <Image src="/IlustraCadastro.svg" alt="Ilustração de Cadastro" width={220} height={220} preload={true} />
             </div>
@@ -91,7 +90,7 @@ export function RegisterModal({
                 {error && <span className="text-sm text-red-500">{error}</span>}
 
                 <div className="flex justify-center mt-4 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <Button type="submit" disabled={isSubmitting || !isValid} variant="orange">
+                    <Button type="submit" disabled={isSubmitting || !isValid} variant="primary">
                         {isSubmitting ? "Cadastrando..." : "Cadastrar"}
                     </Button>
                 </div>

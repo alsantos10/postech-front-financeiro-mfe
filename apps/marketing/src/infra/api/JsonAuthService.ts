@@ -1,5 +1,5 @@
-import { AuthError } from "@/core/errors/AuthError";
-import { User } from "@/core/entities/User";
+import { AuthError } from "@dash/core/errors/AuthError";
+import { User } from "@dash/core/entities/User";
 
 const JSON_SERVER_URL = process.env.JSON_SERVER_URL || "http://localhost:3001";
 

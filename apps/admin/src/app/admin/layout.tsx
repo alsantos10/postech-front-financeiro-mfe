@@ -1,6 +1,5 @@
-import { AuthGuard } from "@dash/auth/context/AuthContext";
-import { DashboardProviders } from "@/ui/components/dashboard/DashboardProviders";
-import { DashboardFooter } from "@/ui/components/dashboard/DashboardFooter";
+import { AuthGuard } from "@dash/dashboard-ui/AuthGuard";
+import { DashboardFooter } from "@dash/dashboard-ui/DashboardFooter";
 
 
 export default function AdminLayout({
@@ -8,7 +7,7 @@ export default function AdminLayout({
 }: {children: React.ReactNode}) {
     return (
         <AuthGuard>
-            <DashboardProviders children={children} updateTransaction={updateTransaction} />
+            {children}
             <DashboardFooter />
         </AuthGuard>
     );
