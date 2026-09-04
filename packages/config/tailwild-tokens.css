@@ -1,13 +1,25 @@
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
+  --background: #ffffff;
+  --foreground: #171717;
+  --custom-green: #47A138;
+  --custom-green-500: #3d8d30;
+  --custom-gray: #F8F8F8;
+  --custom-red: #FF5031;
+  --custom-red-500: #ce4129;
+  --custom-orange: #FF5031;
+  --custom-orange-500: #f0482a;
 }
 
 @theme inline {
-    --color-background: --var(--background);
-    --color-foreground: --var(--foreground);
-    --font-sans: var(--font-geist-sans);
-    --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-custom-green: var(--custom-green);
+  --color-custom-green-500: var(--custom-green-500);
+  --color-custom-gray: var(--custom-gray);
+  --color-custom-red: var(--custom-red);
+  --color-custom-red-500: var(--custom-red-500);
 }
 
 @media (prefers-color-scheme: dark) {
