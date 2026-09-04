@@ -35,11 +35,11 @@ export function PublicFooter() {
                   </h2>
                   <div className="mb-4 flex items-center">
                     <Image
-                      src="/Logo.svg"
+                      src="/brand/Logo.svg"
                       alt="Bytebank"
                       width={140}
                       height={32}
-                      className="brightness-0 inver w-full h-auto"
+                      className="w-full h-auto"
                     />
                   </div>
                   <div className="flex items-center gap-3">
@@ -65,41 +65,4 @@ export function PublicFooter() {
             </div>
         </footer>
     )
-
-
-/*
-    return (
-        <footer className="border-t border-zinc-200 bg-white py-8 dark:border-zinc-800 dark:bg-zinc-950">
-            <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 md:flex-row">
-                <span className="text-sm text-zinc-600 dark:text-zinc-400">
-                    @ {currentYear} Painel de Controlador Demo
-                </span>
-            </div>
-
-            <div>
-                <Link href="/" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
-                    Home
-                </Link>
-                <Link href="/other" className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
-                    Outro
-                </Link>
-            </div>
-
-            <div className="flex items-center gap-4">
-                <a href="null" target="_blank" rel="noopener noreferrer"
-                    className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
-                    Facebook
-                </a>
-                <a href="null" target="_blank" rel="noopener noreferrer"
-                    className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
-                    Twitter
-                </a>
-                <a href="null" target="_blank" rel="noopener noreferrer"
-                    className="text-sm text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200">
-                    Instagran"
-                </a>
-            </div>
-        </footer>
-    )
-*/
 }

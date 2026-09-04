@@ -1,4 +1,4 @@
-import { TRANSACTION_OPTIONS, TypeTransaction } from "@/core/entities/Transactions";
+import { TRANSACTION_OPTIONS, TypeTransaction } from "@dash/core/entities/Transactions";
 import { z } from "zod";
 
 export const transactionSchema = z.object({

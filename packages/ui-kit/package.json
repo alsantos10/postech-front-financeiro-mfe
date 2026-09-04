@@ -3,6 +3,9 @@
     "version": "0.0.0",
     "description": "UI component library for the Dash application",
     "private": true,
+    "dependencies": {
+        "@dash/core": "*"
+    },
     "peerDependencies": {
         "react": "*",
         "react-dom": "*",

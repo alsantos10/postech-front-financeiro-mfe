@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 interface Props {
     children: React.ReactNode;
-    updateTransaction: React.ReactNode;
+  updateTransaction?: React.ReactNode;
 }
 
 export default function RootLayout({

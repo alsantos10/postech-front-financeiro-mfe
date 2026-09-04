@@ -1,6 +1,6 @@
 "use client";
 
-import { formatCurrency } from "@/shared/formatting/currency";
+import { formatCurrency } from "@dash/core/utils/formatting/currency";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useBalance } from "@/ui/hooks/useBalance";

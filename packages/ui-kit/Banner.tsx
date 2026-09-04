@@ -1,6 +1,11 @@
 import Image from "next/image";
 
-export function Banner() {
+interface BannerProps {
+  imageSrc: string;
+  title?: string;
+}
+
+export function Banner({ imageSrc, title }: BannerProps) {
   return (
     <section className="mx-auto flex h-auto w-full max-w-6xl flex-col overflow-hidden rounded-4xl md:h-80 md:flex-row">
       <div className="flex h-full w-full flex-col items-center justify-center px-8 py-8 text-center text-white md:w-1/2 md:items-start md:px-12 md:py-16 md:text-left">
@@ -11,8 +16,8 @@ export function Banner() {
 
       <div className="flex w-full items-center justify-center px-4 pb-8 md:h-full md:w-1/2 md:p-6">
         <Image
-          src="/IlustraBanner.svg"
-          alt="Ilustração do banner"
+          src={imageSrc || '/illustrations/IlustraBanner.svg'}
+          alt={title || "Título do Banner"}
           width={420}
           height={320}
           loading="eager"

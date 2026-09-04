@@ -1,7 +1,7 @@
-import { Transaction, TypeTransaction } from "@/core/entities/Transactions"
-import { formatCurrency } from "@/shared/formatting/currency";
-import { convertDate, getDateName } from '@/shared/formatting/convertDate';
-import { capitalize } from "@/shared/formatting/capitalize";
+import { Transaction, TypeTransaction } from "@dash/core/entities/Transactions"
+import { formatCurrency } from "@dash/core/utils/formatting/currency";
+import { convertDate, getDateName } from '@dash/core/utils/formatting/convertDate';
+import { capitalize } from "@dash/core/utils/formatting/capitalize";
 
 export interface CardTransactionGridProps {
     transactions: Transaction[],

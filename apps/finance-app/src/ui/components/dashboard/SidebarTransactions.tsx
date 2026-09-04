@@ -1,11 +1,11 @@
 'use client'
 
-import { CardTransactionGrid } from "../shared/CardGrid";
+import { CardTransactionGrid } from "@dash/ui-kit/CardGrid";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, AppDispatch } from "@/core/stores";
 import { fetchTransactionsAsync } from "@/core/features/transactions/transactionSlice";
 import { useAuth } from "@/ui/hooks/useAuth";
-import { OrderType } from "@/core/entities/DataGrid";
+import { OrderType } from "@dash/core/entities/DataGrid";
 import { useEffect } from "react";
 
 

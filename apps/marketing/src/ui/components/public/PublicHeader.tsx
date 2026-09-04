@@ -46,7 +46,7 @@ export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
                 {/* Logo: mobile a direita, desktop a esquerda */}
                 <Link href="/" className='hidden sm:flex md:flex lg:hidden'>
                     <img
-                        src="/logo_icon.png"
+                        src="/brand/logo_icon.png"
                         alt="Bytebank"
                         className="h-8 w-8"
                         width={146}
@@ -57,7 +57,7 @@ export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
                 {/* Logo: mobile a direita, desktop a esquerda */}
                 <Link href="/" className='sm:hidden lg:flex'>
                     <img
-                        src="/Logo.svg"
+                        src="/brand/Logo.svg"
                         alt="Bytebank"
                         className="h-8 w-auto"
                         width={146}
@@ -87,10 +87,16 @@ export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
                         </Button>
                     ):(
                         <>
-                            <Button variant="primary" size="md" onClick={() => handleNav("/register")}>
+                            <Button variant="primary" size="md" onClick={() => {
+                                setIsOpen(false);
+                                onOpenRegister();
+                            }}>
                                 Abrir sua Conta
                             </Button>
-                            <Button variant="secondary" size="md" onClick={() => handleNav("/login")}>
+                            <Button variant="secondary" size="md" onClick={() => {
+                                setIsOpen(false);
+                                onOpenLogin();
+                            }}>
                                 Já tenho Conta
                             </Button>
                         </>
@@ -126,8 +132,8 @@ export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
                     <button onClick={() => handleNav("/about")} className="block text-lg text-white cursor-pointer hover:text-custom-green text-left w-full">
                         Sobre
                     </button>
-                    <button onClick={() => handleNav("/services")} className="block text-lg text-white cursor-pointer hover:text-custom-green text-left w-full">
-                        Serviços
+                    <button onClick={() => handleNav("/products")} className="block text-lg text-white cursor-pointer hover:text-custom-green text-left w-full">
+                        Produtos
                     </button>
                 {isAuthenticated ? (
                     <Button variant="primary" size="md" fullWidth onClick={goToPanel}>
@@ -135,10 +141,16 @@ export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
                     </Button>
                 ) : (
                     <div className="space-y-4">
-                        <Button variant="primary" size="md" fullWidth onClick={() => handleNav("/register")}>
+                        <Button variant="primary" size="md" fullWidth onClick={() => {
+                            setIsOpen(false);
+                            onOpenRegister();
+                        }}>
                             Abrir sua Conta
                         </Button>
-                        <Button variant="secondary" size="md" fullWidth onClick={() => handleNav("/login")}>
+                        <Button variant="secondary" size="md" fullWidth onClick={() => {
+                            setIsOpen(false);
+                            onOpenLogin();
+                        }}>
                             Já tenho Conta
                         </Button>
                     </div>

@@ -44,7 +44,7 @@ export function LoginModal({
     return (
         <Modal isOpen={true} onClose={onClose}>
             <div className="flex flex-col items-center p-4">
-                <Image src="/IlustraCadastro.svg" alt="Ilustração de login" width={220} height={220} preload={true} />
+                <Image src="/illustrations/IlustraCadastro.svg" alt="Ilustração de login" width={220} height={220} preload={true} />
             </div>
 
             <h3 className="text-lg font-medium text-gray-900 text-center">Login</h3>

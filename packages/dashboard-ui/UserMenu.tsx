@@ -1,6 +1,6 @@
 "use client"
 
-import { useAuth } from "@/ui/context/AuthContext";
+import { useAuth } from "@dash/auth/context/AuthContext";
 import { User, UserCircle, UserCircle2, UserCircle2Icon } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";

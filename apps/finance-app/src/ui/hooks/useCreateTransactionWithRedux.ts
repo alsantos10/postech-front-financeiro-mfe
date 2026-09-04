@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/core/stores";
 import { createTransactionAsync } from "@/core/features/transactions/transactionSlice";
-import { TypeTransaction } from "@/core/entities/Transactions";
+import { TypeTransaction } from "@dash/core/entities/Transactions";
 import { useAuth } from "./useAuth";
 import { useCallback } from "react";
 

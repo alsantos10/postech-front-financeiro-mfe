@@ -1,14 +1,13 @@
 "use client";
 
-import { TypeTransaction } from "@/core/entities/Transactions";
+import { TypeTransaction } from "@dash/core/entities/Transactions";
 import { TransactionFormData, transactionSchema } from "@/ui/schemas/transactionSchema";
 import { RootState } from "@/core/stores";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
-import { Input } from "../shared/Input";
-import Button from "../shared/Button";
+import { Input } from "@dash/ui-kit/Input";
+import Button from "@dash/ui-kit/Button";
 import { useSelector } from "react-redux";
 
 interface NewTransactionCardProps {
@@ -20,7 +19,6 @@ interface NewTransactionCardProps {
 }
 
 export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardProps) {
-    const notify = () => toast.success("Transação criada com sucesso!")
     const [error, setError] = useState<string | null>(null);
 
     const {
@@ -37,7 +35,6 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
         try {
             setError(null);
             await onCreateTransaction(data.description, data.amount, data.type);
-            notify();
             reset();
         } catch (err) {
             setError(err instanceof Error ? err.message : "Erro ao realizar login");
