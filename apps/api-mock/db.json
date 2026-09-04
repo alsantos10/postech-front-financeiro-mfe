@@ -357,6 +357,22 @@
       "transactionDate": "2026-09-01T05:29:33.528Z",
       "userId": "L6HYCWwTlGY",
       "id": "b2UwqsaA7kg"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "teste",
+      "amount": 700,
+      "type": "PAGAMENTO",
+      "transactionDate": "2026-09-04T23:21:21.049Z",
+      "id": "yOqVeTY"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "trtrty",
+      "amount": 22,
+      "type": "TRANSFERENCIA",
+      "transactionDate": "2026-09-04T23:30:28.676Z",
+      "id": "LmVDEeE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

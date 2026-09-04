@@ -31,13 +31,13 @@ export function UserMenu() {
             {isOpen && (
                 <div className="absolute right-0 mt-2 w-48 rounded-sm border border-zinc-200 bg-white shadow-lg">
                     <Link
-                        href="/painel/profile"
+                        href="/admin/profile"
                         className="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100"
                         onClick={() => setIsOpen(false)}>
                             Perfil
                     </Link>
                     <Link
-                        href="/painel/profile"
+                        href="/admin/settings"
                         className="block px-4 py-2 text-sm text-zinc-700 hover:bg-zinc-100"
                         onClick={() => setIsOpen(false)}>
                             Configurações

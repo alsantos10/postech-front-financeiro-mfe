@@ -25,7 +25,7 @@ export class Transaction {
     }
 }
 
-export const TRANSACTION_OPTIONS = [
+export const TRANSACTION_OPTIONS: TypeTransaction[] = [
     TypeTransaction.DEPOSIT, 
     TypeTransaction.TRANSFER, 
     TypeTransaction.INVESTMENT, 

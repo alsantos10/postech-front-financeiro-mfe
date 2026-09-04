@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@dash/auth/context/AuthContext";
 import { AuthGuard } from "@dash/dashboard-ui/AuthGuard";
 import { DashboardProviders } from "@/ui/components/dashboard/DashboardProviders";
 import { DashboardFooter } from "@/ui/components/dashboard/DashboardFooter";
@@ -41,8 +42,10 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
           <AuthGuard>
-            <DashboardProviders children={children} updateTransaction={updateTransaction} />
-            <DashboardFooter />
+            <AuthProvider>
+              <DashboardProviders children={children} updateTransaction={updateTransaction} />
+              <DashboardFooter />
+            </AuthProvider>
         </AuthGuard>
       </body>
     </html>

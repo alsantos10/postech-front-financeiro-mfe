@@ -1,7 +1,7 @@
 
 "use client";
 
-import { Transaction, TRANSACTION_OPTIONS } from "@/core/entities/Transactions";
+import { Transaction, type TypeTransaction, TRANSACTION_OPTIONS } from "@/core/entities/Transactions";
 import Modal from "@/ui/modal";
 import Image from "next/image";
 import { Input } from "../shared/Input";
@@ -52,7 +52,7 @@ export function CreateTransactionModal({
             notify();
             reset();
             onClose();
-            window.location.href = "/painel/transactions";
+            window.location.href = "/dashboard/transactions";
         } catch(err) {
             setError(err instanceof Error ? err.message : "Erro ao realizar login");
         }
@@ -83,7 +83,7 @@ export function CreateTransactionModal({
                     <select
                         {...register("type")}
                         className="border border-gray-300 rounded-md p-2">
-                        {options.map((option) => (
+                        {options.map((option: TypeTransaction) => (
                             <option key={option} value={option}>
                                 {option}
                             </option>

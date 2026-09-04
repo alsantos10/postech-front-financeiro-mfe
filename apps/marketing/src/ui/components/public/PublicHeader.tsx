@@ -21,7 +21,7 @@ export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
     const goToPanel = () => {
         setIsLoading(true);
         setIsOpen(false);
-        redirect(`/painel`);
+        redirect(`/dashboard`);
     };
 
     const handleNav = async (href: string) => {
