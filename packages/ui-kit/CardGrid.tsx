@@ -14,7 +14,7 @@ export function CardTransactionGrid({
 
     return (
 
-        <ul className="w-full gap-y-0 mt-4 mb-4">
+        <ul className="xl:w-full w-64 gap-y-0 mt-4 mb-4">
             {loading ? (
                 <li className="px-4 py-8 text-center text-zinc-500">
                     Carregando...
@@ -26,7 +26,7 @@ export function CardTransactionGrid({
             ) : (transactions && transactions.map((item, index) => (
                 <div key={item.id} className="w-full">
                     {/* Container do Item */}
-                    <div className="flex flex-row justify-between items-start w-full py-4 px-2 sm:w-64 sm:ml-auto sm:mr-auto">
+                    <div className="flex flex-row justify-between items-start w-full py-4 px-2 sm:ml-auto sm:mr-auto">
 
                         {/* Coluna 1: Informações principais */}
                         <div className="flex flex-col gap-2 flex-1">

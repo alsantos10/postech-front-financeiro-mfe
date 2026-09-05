@@ -12,10 +12,10 @@ export default function DashboardPage() {
     
     return (
         <div className="flex flex-row sm:flex-col sm:gap-2">
-            <main className="flex flex-1 flex-col sm:p-6">
+            {/* <main className="flex flex-1 flex-col"> */}
                 <BalanceCard userName={user?.name} />
                 <NewTransactionCard onCreateTransaction={createTransaction} />
-            </main>
+            {/* </main> */}
         </div>
 
     );

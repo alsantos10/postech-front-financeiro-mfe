@@ -26,7 +26,7 @@ const advantages = [
 
 export default function HomeContent() {
     return (
-    <main
+    <section
         className="flex flex-1 items-start justify-center px-6 py-10"
         style={{
         background: "linear-gradient(180deg, #004D61 0%, #FFFFFF 100%)",
@@ -55,6 +55,6 @@ export default function HomeContent() {
             </div>
         </section>
         </div>
-    </main>
+    </section>
     );
 }

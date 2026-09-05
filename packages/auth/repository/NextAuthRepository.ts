@@ -14,7 +14,9 @@ export class NextAuthRepository implements AuthRepository {
             const error = await response.json();
             throw new AuthError(error.message || "Credenciais inválidas");
         }
-        return response.json();
+        const { user } = await response.json();
+        console.log("NextAuthRepository login response user:", user);
+        return user;
     }
 
     async register(name: string, email: string, password: string): Promise<User> {

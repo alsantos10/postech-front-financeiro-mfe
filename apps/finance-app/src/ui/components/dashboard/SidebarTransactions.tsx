@@ -28,24 +28,26 @@ export function SidebarTransactions() {
   }, [dispatch, user]);
 
   return (
-    <aside className="w-full md:w-auto items-center p-4 md:p-6 rounded-xl bg-[#F5F5F5] border-t md:border-t-0 md:border-l border-gray-200 flex flex-col gap-4">
+    <aside className="w-full shrink-0 xl:py-6 pr-4 xl:w-70">
+      <section className="w-full md:w-auto items-center p-4 md:p-6 rounded-xl bg-[#F5F5F5] border-t md:border-t-0 md:border-l border-gray-200 flex flex-col gap-4">
 
-      <h2 className="text-2xl font-bold">
-        Extrato
-      </h2>
+        <h2 className="text-2xl font-bold">
+          Extrato
+        </h2>
 
-      {/* 1. Componente Grid de Transações solicitado */}
-      <CardTransactionGrid
-        transactions={transactions || []}
-        loading={loading}
-      />
+        {/* 1. Componente Grid de Transações solicitado */}
+        <CardTransactionGrid
+          transactions={transactions || []}
+          loading={loading}
+        />
 
-      {/* Exibição de Erro Amigável na UI se necessário */}
-      {error && (
-        <div className="text-xs text-red-500 text-center py-2 bg-red-50 rounded">
-          {error}
-        </div>
-      )}
+        {/* Exibição de Erro Amigável na UI se necessário */}
+        {error && (
+          <div className="text-xs text-red-500 text-center py-2 bg-red-50 rounded">
+            {error}
+          </div>
+        )}
+      </section>
     </aside>
   );
 }

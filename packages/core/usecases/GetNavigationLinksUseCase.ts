@@ -1,4 +1,4 @@
-import { NavigationLink } from "../entities/NavigationLink";
+import { NavigationLink } from '@dash/core/entities/NavigationLink';
 
 export class GetNavigationLinksUseCase {
   execute(): NavigationLink[] {

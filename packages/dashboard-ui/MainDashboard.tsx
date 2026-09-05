@@ -2,19 +2,20 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { GetNavigationLinksUseCase } from '@/core/usecases/GetNavigationLinksUseCase';
+import { GetNavigationLinksUseCase } from '@dash/core/usecases/GetNavigationLinksUseCase';
+import { NavigationLink } from '@dash/core/entities/NavigationLink';
 import { NavbarMobile } from './NavibarMobile';
 import { SidebarTransactions } from './SidebarTransactions';
 import { UserMenu } from './UserMenu';
-import { NavLink } from 'react-router-dom';
 import { usePathname } from 'next/navigation';
+
 
 export default function MainDashboard({ children }: { children: React.ReactNode }) {
   const [menuAberto, setMenuAberto] = useState(false);
 
   // Instanciação/Injeção do Caso de Uso (Pode ser feito via Container de DI se preferir)
   const getLinksUseCase = useMemo(() => new GetNavigationLinksUseCase(), []);
-  const links = useMemo(() => getLinksUseCase.execute(), [getLinksUseCase]);
+  const links: NavigationLink[] = useMemo(() => getLinksUseCase.execute(), [getLinksUseCase]);
 
   const pathname = usePathname();
 
@@ -85,9 +86,9 @@ export default function MainDashboard({ children }: { children: React.ReactNode 
         {/* CORPO CENTRAL */}
         <div className="flex flex-1 flex-col md:flex-row w-full">
           {/* Centro (690px) */}
-          <main className="w-full xl:w-173 xl:min-w-173">
+          <section className="w-full xl:w-173 xl:min-w-173">
             {children}
-          </main>
+          </section>
 
           {/* Direita (282px) */}
           <aside className="w-full md:w-auto xl:w-[282] xl:min-w-[282] p-4 border-t md:border-t-0 md:border-l border-gray-200">

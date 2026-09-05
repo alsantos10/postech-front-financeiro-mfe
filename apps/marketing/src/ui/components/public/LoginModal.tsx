@@ -36,7 +36,6 @@ export function LoginModal({
             setError(null);
             await login(data.email, data.password);
             reset();
-            onClose();
             router.replace("/dashboard");
         } catch(err) {
             setError(err instanceof Error ? err.message : "Erro ao realizar login");

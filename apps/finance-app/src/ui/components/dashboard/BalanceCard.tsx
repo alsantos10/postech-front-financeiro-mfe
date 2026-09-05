@@ -30,7 +30,7 @@ export function BalanceCard({ userName: userNameProp }: BalanceCardProps) {
 
     return (
         <div
-            className="grid grid-cols-2 relative min-h-100 overflow-hidden rounded-2xl bg-[#004D61] bg-no-repeat p-6 text-white"
+            className="grid grid-cols-2 relative min-h-100 overflow-hidden rounded-xl bg-[#004D61] bg-no-repeat p-6 text-white"
             style={{
                 backgroundImage: "url('/IlustraFundoMain/IlustraFundoMain3.svg'), url('/IlustraFundoMain/IlustraFundoMain1.svg'), url('/IlustraFundoMain/IlustraFundoMain2.svg')",
                 backgroundPosition: "right top, 2em bottom, left bottom",
