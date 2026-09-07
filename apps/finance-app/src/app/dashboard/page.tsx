@@ -12,11 +12,8 @@ export default function DashboardPage() {
     
     return (
         <div className="flex flex-row sm:flex-col sm:gap-2">
-            {/* <main className="flex flex-1 flex-col"> */}
-                <BalanceCard userName={user?.name} />
-                <NewTransactionCard onCreateTransaction={createTransaction} />
-            {/* </main> */}
+            <BalanceCard userName={user?.name} />
+            <NewTransactionCard onCreateTransaction={createTransaction} />
         </div>
-
     );
 }

@@ -13,15 +13,16 @@
     "dependencies": {
         "@dash/auth": "*",
         "@dash/core": "*",
-        "@dash/ui-kit": "*",
         "@dash/dashboard-ui": "*",
+        "@dash/ui-kit": "*",
         "@hookform/resolvers": "^3.3.0",
         "@reduxjs/toolkit": "^2.8.2",
-        "next": "16.2.10",
+        "next": "^16.3.4",
         "react": "19.2.4",
         "react-dom": "19.2.4",
         "react-hook-form": "^7.82.0",
         "react-redux": "^9.2.0",
+        "recharts": "*",
         "zod": "^4.4.3"
     },
     "devDependencies": {

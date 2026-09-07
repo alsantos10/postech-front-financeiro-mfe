@@ -5,9 +5,9 @@ export class GetNavigationLinksUseCase {
     // Aqui você poderia injetar um serviço de autenticação para filtrar links por permissão
     return [
       { label: 'Início', href: '/dashboard' },
-      { label: 'Transferências', href: '/transferencias' },
-      { label: 'Investimentos', href: '/investimentos' },
-      { label: 'Outros Serviços', href: '/servicos' },
+      { label: 'Transferências', href: '/dashboard/transferences' },
+      { label: 'Investimentos', href: '/dashboard/investments' },
+      { label: 'Outros Serviços', href: '/products' },
     ];
   }
 }

@@ -73,7 +73,7 @@ export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
                         Sobre
                     </Link>
                     <Link
-                        href="/services"
+                        href="/products"
                         className="rounded-none bg-transparent px-0 py-0 text-[18px] font-semibold text-custom-green hover:text-custom-green-500">
                         Serviços
                     </Link>

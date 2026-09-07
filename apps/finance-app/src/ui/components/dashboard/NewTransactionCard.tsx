@@ -1,6 +1,12 @@
 "use client";
 
-import { TypeTransaction } from "@dash/core/entities/Transactions";
+import {
+    INVESTMENT_OPTIONS,
+    TRANSFERENCE_OPTIONS,
+    TypeInvestment,
+    TypeTransaction,
+    TypeTransference,
+} from "@dash/core/entities/Transactions";
 import { TransactionFormData, transactionSchema } from "@/ui/schemas/transactionSchema";
 import { RootState } from "@/core/stores";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -14,7 +20,8 @@ interface NewTransactionCardProps {
     onCreateTransaction: (
         description: string,
         amount: number,
-        type: TypeTransaction
+        type: TypeTransaction,
+        subtype?: TypeInvestment | TypeTransference,
     ) => Promise<void>
 }
 
@@ -25,6 +32,7 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
         register,
         handleSubmit,
         reset,
+        watch,
         formState: { errors, isSubmitting, isValid },
     } = useForm<TransactionFormData>({
         resolver: zodResolver(transactionSchema)
@@ -34,7 +42,7 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
     async function onSubmit(data: TransactionFormData) {
         try {
             setError(null);
-            await onCreateTransaction(data.description, data.amount, data.type);
+            await onCreateTransaction(data.description, data.amount, data.type, data.subtype);
             reset();
         } catch (err) {
             setError(err instanceof Error ? err.message : "Erro ao realizar login");
@@ -42,6 +50,12 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
     }
 
     const options = useSelector((state: RootState) => state.transactionTypes.types);
+    const selectedType = watch("type");
+    const subtypeOptions = selectedType === TypeTransaction.INVESTMENT
+        ? INVESTMENT_OPTIONS
+        : selectedType === TypeTransaction.TRANSFER
+            ? TRANSFERENCE_OPTIONS
+            : [];
 
     return (
         <div className="rounded-2xl bg-zinc-200 p-6 mt-4">
@@ -69,6 +83,29 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
                     </select>
                 </div>
                 {errors.type && <span className="text-red-500">{errors.type.message}</span>}
+
+                {subtypeOptions.length > 0 && (
+                    <div className="flex flex-col gap-2">
+                        <label htmlFor="subtype" className="block text-sm font-medium text-gray-700">
+                            {selectedType === TypeTransaction.INVESTMENT ? "Tipo de investimento" : "Tipo de transferência"}
+                        </label>
+                        <select
+                            id="subtype"
+                            {...register("subtype")}
+                            className="border border-gray-300 rounded-md p-2"
+                            defaultValue=""
+                        >
+                            <option value="">Selecione uma opção</option>
+                            {subtypeOptions.map((option) => (
+                                <option key={option} value={option}>
+                                    {option}
+                                </option>
+                            ))}
+                        </select>
+                        {errors.subtype && <span className="text-red-500">{errors.subtype.message}</span>}
+                    </div>
+                )}
+
                 <Input
                     label="Valor"
                     type="number"

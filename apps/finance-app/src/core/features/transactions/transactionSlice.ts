@@ -1,6 +1,11 @@
 import { Account } from "@dash/core/entities/Account";
 import { DataGridPagination, IListDatagridFilters, OrderType } from "@dash/core/entities/DataGrid";
-import { Transaction, TypeTransaction } from "@dash/core/entities/Transactions";
+import {
+    Transaction,
+    TypeInvestment,
+    TypeTransaction,
+    TypeTransference,
+} from "@dash/core/entities/Transactions";
 import { Paginated } from "@dash/core/entities/Paginated";
 import { User } from "@dash/core/entities/User";
 import { UserTransaction } from "@dash/core/entities/UserTransactions";
@@ -23,6 +28,7 @@ interface CreateTransactionParams {
     description: string;
     amount: number;
     type: TypeTransaction;
+    subtype?: TypeInvestment | TypeTransference;
     page?: number;
     limit?: number;
 }
@@ -44,6 +50,7 @@ export const createTransactionAsync = createAsyncThunk(
         transaction.description = params.description;
         transaction.amount = params.amount;
         transaction.type = params.type;
+        transaction.subtype = params.subtype;
         await repository.createTransactionForUser(transaction);
         await dispatch(fetchTransactionsAsync({
             user: params.user,

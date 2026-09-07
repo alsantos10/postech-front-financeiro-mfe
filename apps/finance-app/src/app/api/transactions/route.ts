@@ -1,5 +1,10 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
+import {
+  INVESTMENT_OPTIONS,
+  TRANSFERENCE_OPTIONS,
+  TypeTransaction,
+} from "@dash/core/entities/Transactions";
 
 const JSON_SERVER_URL = process.env.JSON_SERVER_URL || "http://localhost:3001";
 const SESSION_COOKIE = "auth-session";
@@ -8,6 +13,7 @@ type JsonTransaction = {
   id: string;
   userId: string;
   type: string;
+  subtype?: string;
   amount: number;
   transactionDate: string;
   description: string;
@@ -34,6 +40,18 @@ function toTransaction(transaction: JsonTransaction) {
     ...transaction,
     transactionDate: new Date(transaction.transactionDate),
   };
+}
+
+function isValidSubtype(type: string, subtype?: string) {
+  if (type === TypeTransaction.INVESTMENT) {
+    return typeof subtype === "string" && INVESTMENT_OPTIONS.includes(subtype as typeof INVESTMENT_OPTIONS[number]);
+  }
+
+  if (type === TypeTransaction.TRANSFER) {
+    return typeof subtype === "string" && TRANSFERENCE_OPTIONS.includes(subtype as typeof TRANSFERENCE_OPTIONS[number]);
+  }
+
+  return subtype === undefined;
 }
 
 export async function GET(request: NextRequest) {
@@ -99,10 +117,10 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json();
-  const { description, amount, type } = body;
-  if (!description || typeof amount !== "number" || !type) {
+  const { description, amount, type, subtype } = body;
+  if (!description || typeof amount !== "number" || !type || !isValidSubtype(type, subtype)) {
     return NextResponse.json(
-      { message: "Descrição, valor e tipo são obrigatórios" },
+      { message: "Descrição, valor e tipo são obrigatórios; selecione um subtipo válido" },
       { status: 400 },
     );
   }
@@ -115,6 +133,7 @@ export async function POST(request: NextRequest) {
       description,
       amount,
       type,
+      ...(subtype ? { subtype } : {}),
       transactionDate: new Date().toISOString(),
     }),
   });

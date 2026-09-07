@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/core/stores";
 import { createTransactionAsync } from "@/core/features/transactions/transactionSlice";
-import { TypeTransaction } from "@dash/core/entities/Transactions";
+import { TypeInvestment, TypeTransaction, TypeTransference } from "@dash/core/entities/Transactions";
 import { useAuth } from "./useAuth";
 import { useCallback } from "react";
 
@@ -17,7 +17,12 @@ export function useCreateTransactionWithRedux() {
     const { page, limit } = useSelector((state: RootState) => state.transactions);
 
     const createTransaction = useCallback(
-        async (description: string, amount: number, type: TypeTransaction) => {
+        async (
+            description: string,
+            amount: number,
+            type: TypeTransaction,
+            subtype?: TypeInvestment | TypeTransference,
+        ) => {
             if (!user) {
                 throw new Error("Usuário não autenticado");
             }
@@ -27,6 +32,7 @@ export function useCreateTransactionWithRedux() {
                 description,
                 amount,
                 type,
+                subtype,
                 page,
                 limit
             }));

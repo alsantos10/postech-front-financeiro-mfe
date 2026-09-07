@@ -373,6 +373,32 @@
       "type": "TRANSFERENCIA",
       "transactionDate": "2026-09-04T23:30:28.676Z",
       "id": "LmVDEeE"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "dsad",
+      "amount": 204,
+      "type": "TRANSFERENCIA",
+      "subtype": "PIX",
+      "transactionDate": "2026-09-07T21:01:41.788Z",
+      "id": "ps-ZoUA"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "dsad",
+      "amount": 1111,
+      "type": "TRANSFERENCIA",
+      "subtype": "TED",
+      "transactionDate": "2026-09-07T21:02:56.546Z",
+      "id": "lH94Qfn"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "ewew",
+      "amount": 300,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-09-07T21:06:52.883Z",
+      "id": "93iUEQd"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
