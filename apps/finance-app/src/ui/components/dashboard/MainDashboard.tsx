@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GetNavigationLinksUseCase } from "@dash/core/usecases/GetNavigationLinksUseCase";
+import { TypeTransaction } from "@dash/core/entities/Transactions";
 import { SidebarTransactions } from "./SidebarTransactions";
 import { UserMenu } from "@dash/dashboard-ui/UserMenu";
 import { NavbarMobile } from '@/ui/components/dashboard/NavibarMobile';
@@ -16,6 +17,11 @@ export default function MainDashboard({ children }: { children: React.ReactNode 
   const links = useMemo(() => getLinksUseCase.execute(), [getLinksUseCase]);
 
   const pathname = usePathname();
+  const transactionType = pathname === "/dashboard/transferences"
+    ? TypeTransaction.TRANSFER
+    : pathname === "/dashboard/investments"
+      ? TypeTransaction.INVESTMENT
+      : undefined;
 
   const baseLink = "block py-4 font-medium hover:text-custom-green-500 border-b border-transparent hover:border-custom-green-500 transition-colors";
   const baseLinkDesktop = "block py-4 font-medium hover:text-custom-green-500 border-b hover:border-custom-green-500 last:border-b-0 transition-colors";
@@ -92,7 +98,7 @@ export default function MainDashboard({ children }: { children: React.ReactNode 
           <aside className="w-full md:w-auto xl:w-[282] xl:min-w-[282] border-t md:border-t-0 md:border-l border-gray-200">
             <div className="text-sm font-semibold mb-2">
 
-              <SidebarTransactions />
+              <SidebarTransactions type={transactionType} />
             </div>
           </aside>
         </div>

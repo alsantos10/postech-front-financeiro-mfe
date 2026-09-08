@@ -66,6 +66,7 @@ export async function GET(request: NextRequest) {
   const sort = searchParams.get("sort") || "transactionDate";
   const order = searchParams.get("order") || "asc";
   const term = (searchParams.get("term") || "").trim().toLowerCase();
+  const type = searchParams.get("type");
 
   const response = await fetch(
     `${JSON_SERVER_URL}/transactions?userId=${encodeURIComponent(user.id)}`,
@@ -76,6 +77,9 @@ export async function GET(request: NextRequest) {
   }
 
   let transactions = (await response.json()) as JsonTransaction[];
+  if (type) {
+    transactions = transactions.filter((transaction) => transaction.type === type);
+  }
   if (term) {
     transactions = transactions.filter((transaction) =>
       transaction.description.toLowerCase().includes(term),
@@ -99,7 +103,6 @@ export async function GET(request: NextRequest) {
         : totalAmount - transaction.amount,
     0,
   );
-
   return NextResponse.json({
     items,
     total,

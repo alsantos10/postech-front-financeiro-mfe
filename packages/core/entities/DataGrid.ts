@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { TypeTransaction } from "./Transactions";
 
 export enum OrderType {
     ASC = "asc",
@@ -42,4 +43,5 @@ export interface IListDatagridFilters {
     sort: string;
     order: OrderType;
     term?: string;
+    type?: TypeTransaction;
 }

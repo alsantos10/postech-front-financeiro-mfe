@@ -6,13 +6,18 @@ import { RootState, AppDispatch } from "@/core/stores";
 import { fetchTransactionsAsync } from "@/core/features/transactions/transactionSlice";
 import { useAuth } from "@/ui/hooks/useAuth";
 import { OrderType } from "@dash/core/entities/DataGrid";
-import { useEffect } from "react";
+import { TypeTransaction } from "@dash/core/entities/Transactions";
+import { useEffect, useCallback } from "react";
 
 
-export function SidebarTransactions() {
+interface SidebarTransactionsProps {
+  type?: TypeTransaction;
+}
+
+export function SidebarTransactions({ type }: SidebarTransactionsProps) {
   const dispatch = useDispatch<AppDispatch>();
   const { user } = useAuth();
-  const { items: transactions, loading, error, page, limit } = useSelector((state: RootState) => state.transactions);
+  const { items: transactions, loading, error, page, limit, totalPages } = useSelector((state: RootState) => state.transactions);
 
   useEffect(() => {
     if (user) {
@@ -22,10 +27,41 @@ export function SidebarTransactions() {
         limit: 10,
         sort: "",
         order: OrderType.ASC,
-        term: ""
+        term: "",
+        type,
+        append: false,
       }));
     }
-  }, [dispatch, user]);
+  }, [dispatch, user, type]);
+
+  const loadMore = useCallback(() => {
+    if (!user || loading || page >= totalPages) return;
+
+    dispatch(fetchTransactionsAsync({
+      user,
+      page: page + 1,
+      limit,
+      sort: "",
+      order: OrderType.ASC,
+      term: "",
+      type,
+      append: true,
+    }));
+  }, [dispatch, limit, loading, page, totalPages, type, user]);
+
+  useEffect(() => {
+    function handleWindowScroll() {
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollPosition = window.scrollY + window.innerHeight;
+
+      if (scrollPosition >= documentHeight - 200) {
+        loadMore();
+      }
+    }
+
+    window.addEventListener("scroll", handleWindowScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleWindowScroll);
+  }, [loadMore]);
 
   return (
     <aside className="w-full shrink-0 xl:py-6 pr-4 xl:w-70">
@@ -38,7 +74,8 @@ export function SidebarTransactions() {
         {/* 1. Componente Grid de Transações solicitado */}
         <CardTransactionGrid
           transactions={transactions || []}
-          loading={loading}
+            loading={loading && transactions.length === 0}
+            loadingMore={loading && transactions.length > 0}
         />
 
         {/* Exibição de Erro Amigável na UI se necessário */}

@@ -2,6 +2,7 @@ import { OrderType } from "../entities/DataGrid";
 import { Paginated } from './../entities/Paginated';
 import { UserTransaction } from "../entities/UserTransactions";
 import { User } from "../entities/User";
+import { TypeTransaction } from "../entities/Transactions";
 
 export interface ListTransactionsParams {
     page?: number;
@@ -9,6 +10,7 @@ export interface ListTransactionsParams {
     sort?: string;
     order?: OrderType;
     term?: string;
+    type?: TypeTransaction;
     user?: User | null;
     userId?: string;
 }

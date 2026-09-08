@@ -6,15 +6,16 @@ import { capitalize } from "@dash/core/utils/formatting/capitalize";
 export interface CardTransactionGridProps {
     transactions: Transaction[],
     loading: boolean;
+    loadingMore?: boolean;
 }
 
 export function CardTransactionGrid({
-    transactions, loading,
+    transactions, loading, loadingMore = false,
 }: CardTransactionGridProps) {
 
     return (
-
-        <ul className="xl:w-full w-64 gap-y-0 mt-4 mb-4">
+        <div className="xl:w-full w-64">
+        <ul className="gap-y-0 mt-4 mb-4">
             {loading ? (
                 <li className="px-4 py-8 text-center text-zinc-500">
                     Carregando...
@@ -62,5 +63,12 @@ export function CardTransactionGrid({
             ))
             )}
         </ul>
+        {loadingMore && (
+            <div className="flex items-center justify-center gap-2 px-4 py-4 text-xs text-zinc-500" role="status" aria-live="polite">
+                <span className="h-4 w-4 animate-spin rounded-full border-2 border-zinc-300 border-t-zinc-600" aria-hidden="true" />
+                <span>Carregando mais transações...</span>
+            </div>
+        )}
+        </div>
     )
 }

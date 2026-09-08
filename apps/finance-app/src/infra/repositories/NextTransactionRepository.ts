@@ -17,6 +17,7 @@ export class NextTransactionRepository implements TransactionRepository {
         if (params.sort) query.set("sort", String(params.sort));
         if (params.order) query.set("order", String(params.order));
         if (params.term) query.set("term", String(params.term));
+        if (params.type) query.set("type", params.type);
 
         const response = await fetch(`/api/transactions?${query.toString()}`, {
             cache: "no-store"

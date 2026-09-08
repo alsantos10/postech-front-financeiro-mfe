@@ -21,6 +21,7 @@ interface TransactionsState extends DataGridPagination {
 
 interface FetchTransactionsParams extends IListDatagridFilters {
     user: User;
+    append?: boolean;
 }
 
 interface CreateTransactionParams {
@@ -37,7 +38,7 @@ const repository = new NextTransactionRepository();
 
 export const fetchTransactionsAsync = createAsyncThunk(
     "transactions/fetchTransactions",
-    async ({ user, ...filters }: FetchTransactionsParams) => repository.listTransactions({
+    async ({ user, append: _append, ...filters }: FetchTransactionsParams) => repository.listTransactions({
         ...filters,
         userId: user.id
     })
@@ -82,9 +83,12 @@ const transactionsSlice = createSlice({
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(fetchTransactionsAsync.fulfilled, (state, action: PayloadAction<Paginated<UserTransaction>>) => {
+            .addCase(fetchTransactionsAsync.fulfilled, (state, action) => {
                 state.loading = false;
-                state.items = action.payload.items;
+                const append = action.meta.arg.append === true;
+                state.items = append
+                    ? [...state.items, ...action.payload.items]
+                    : action.payload.items;
                 state.total = action.payload.total;
                 state.page = action.payload.page;
                 state.limit = action.payload.limit;

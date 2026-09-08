@@ -399,6 +399,24 @@
       "type": "DEPOSITO",
       "transactionDate": "2026-09-07T21:06:52.883Z",
       "id": "93iUEQd"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "ddsa",
+      "amount": 333,
+      "type": "TRANSFERENCIA",
+      "subtype": "DOC",
+      "transactionDate": "2026-09-07T21:40:03.082Z",
+      "id": "rpQayNi"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "ewqeq",
+      "amount": 100,
+      "type": "INVESTIMENTO",
+      "subtype": "Tesouro Direto",
+      "transactionDate": "2026-09-08T03:26:24.472Z",
+      "id": "_nk7UN5"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
