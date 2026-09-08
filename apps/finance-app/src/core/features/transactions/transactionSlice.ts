@@ -53,6 +53,9 @@ export const createTransactionAsync = createAsyncThunk(
         transaction.type = params.type;
         transaction.subtype = params.subtype;
         await repository.createTransactionForUser(transaction);
+        if (typeof window !== "undefined") {
+            window.dispatchEvent(new Event("balance-updated"));
+        }
         await dispatch(fetchTransactionsAsync({
             user: params.user,
             page: params.page || 1,

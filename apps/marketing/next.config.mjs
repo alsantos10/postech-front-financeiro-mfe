@@ -22,6 +22,10 @@ const nextConfig = {
           destination: `${financeAppUrl}/api/transactions/:path*`,
         },
         {
+          source: "/api/account/balance",
+          destination: `${financeAppUrl}/api/account/balance`,
+        },
+        {
           source: "/dashboard",
           destination: `${financeAppUrl}/dashboard`,
         },

@@ -5,6 +5,7 @@ import { CSSProperties, useEffect, useState } from 'react';
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 import { useAuth } from '@/ui/hooks/useAuth';
 import { NextTransactionRepository } from '@/infra/repositories/NextTransactionRepository';
+import { formatCurrency } from '@dash/core/utils/formatting/currency';
 
 const COLORS = ['#1685f5', '#963cf4', '#f42c9e'];
 const statisticsUseCase = new GetTransferenceStatisticsUseCase(new NextTransactionRepository());
@@ -58,7 +59,7 @@ export const TransferencesCard = () => {
                 <h2 className="relative z-10 text-xl font-bold">Transferências</h2>
 
                 <p className="relative z-10 text-md text-[#00536b]">
-                    Total: {loading ? 'Carregando...' : `R$ ${statistics.total.toFixed(2).replace('.', ',')}`}
+                    Total: {loading ? 'Carregando...' : `${formatCurrency(statistics.total)}`}
                 </p>
 
                 <div className="relative z-10 mt-5">
@@ -69,7 +70,7 @@ export const TransferencesCard = () => {
                                 <PieChart>
                                     <Tooltip
                                         formatter={(value, name) =>
-                                            [`R$ ${Number(value ?? 0).toFixed(2).replace('.', ',')}`, String(name)]
+                                            [`${formatCurrency(Number(value ?? 0))}`, String(name)]
                                         }
                                     />
                                     <Legend position="right" iconType="circle"

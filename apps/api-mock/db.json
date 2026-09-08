@@ -50,6 +50,7 @@
       "id": "2",
       "userId": "L6HYCWwTlGY",
       "type": "INVESTIMENTO",
+      "subtype": "Tesouro Direto",
       "amount": 200,
       "transactionDate": "2023-01-02T00:00:00Z",
       "description": "Transaction 2"
@@ -162,6 +163,7 @@
       "description": "jhjhjh",
       "amount": 120,
       "type": "INVESTIMENTO",
+      "subtype": "Tesouro Direto",
       "transactionDate": "2026-08-28T22:08:11.465Z",
       "userId": "iSX7h7u9Ijw",
       "id": "hxGQi0L6W68"
@@ -417,6 +419,14 @@
       "subtype": "Tesouro Direto",
       "transactionDate": "2026-09-08T03:26:24.472Z",
       "id": "_nk7UN5"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "dsda",
+      "amount": 10,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-09-08T04:00:09.682Z",
+      "id": "KgTD7Nz"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

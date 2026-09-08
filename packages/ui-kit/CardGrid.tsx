@@ -37,11 +37,11 @@ export function CardTransactionGrid({
                             <span className="text-base font-medium text-zinc-900">
                                 {capitalize(item.type)}
                             </span>
-                            <span className={`text-lg font-bold ${item.type === TypeTransaction.DEPOSIT
+                            <span className={`text-md font-bold ${(TypeTransaction.DEPOSIT, TypeTransaction.INVESTMENT).includes(item.type)
                                     ? 'text-green-600'
                                     : 'text-red-600'
                                 }`}>
-                                {item.type === TypeTransaction.DEPOSIT
+                                {(TypeTransaction.DEPOSIT, TypeTransaction.INVESTMENT).includes(item.type)
                                     ? '+'
                                     : '-'}{formatCurrency(item.amount)}
                             </span>
