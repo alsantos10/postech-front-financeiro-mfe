@@ -1,0 +1,62 @@
+services:
+  api-mock:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    command: npm run dev --workspace=@dash/api-mock
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  marketing:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    command: npm run dev --workspace=@dash/marketing -- --hostname 0.0.0.0
+    ports:
+      - "3000:3000"
+    environment:
+      JSON_SERVER_URL: http://api-mock:3001
+      FINANCE_APP_URL: http://localhost:3002
+      ADMIN_APP_URL: http://localhost:3003
+    depends_on:
+      - api-mock
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  finance-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    command: npm run dev --workspace=@dash/finance-app -- --hostname 0.0.0.0
+    ports:
+      - "3002:3002"
+    environment:
+      PUBLIC_APP_ORIGIN: localhost:3000
+    depends_on:
+      - api-mock
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  admin:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app
+    command: npm run dev --workspace=@dash/admin -- --hostname 0.0.0.0
+    ports:
+      - "3003:3003"
+    environment:
+      PUBLIC_APP_ORIGIN: localhost:3000
+    depends_on:
+      - api-mock
+    volumes:
+      - .:/app
+      - /app/node_modules
