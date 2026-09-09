@@ -14,7 +14,7 @@ interface PublicHeaderProps {
 
 export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
     const {isAuthenticated} = useAuth();
-    let [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
 
