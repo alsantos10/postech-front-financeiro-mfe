@@ -108,6 +108,50 @@ npm run preview --workspace @dash/finance-app
 npm run preview --workspace @dash/admin
 ```
 
+## Docker, Compose, CI e deploy em cloud
+
+Este repositório recebe os primeiros artefatos de uma estrategia de entrega continua:
+
+- `Dockerfile` de desenvolvimento para empacotar a raiz do monorepo e iniciar os workspaces com Node 22;
+- `Dockerfile.production` de referencia para producao;
+- `docker-compose.yml` para subir os principais servicos locais (`api-mock`, `marketing`, `finance-app` e `admin`);
+- `.dockerignore` para reduzir o contexto de build;
+- `.github/workflows/ci.yml` com o fluxo minimo de CI para `lint`, `typecheck`, `build` e validacao de Docker.
+
+O workflow de CI usa o gatilho:
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+```
+
+E o fluxo principal de validacao e:
+
+```powershell
+npm ci
+npm run lint
+npm run typecheck
+npm run build
+```
+
+Para executar a pilha local com Docker:
+
+```powershell
+docker compose up --build
+```
+
+A estrategia mais segura de deploy segue o modelo:
+
+```text
+commit -> CI -> build da imagem -> push do registry -> deploy na cloud -> healthcheck
+```
+
+Para ambientes produtivos, a imagem precisa ser publicada em um registry como GHCR, Docker Hub, ECR, Artifact Registry ou Azure Container Registry. A nuvem deve receber as variaveis de ambiente, os secrets e as configuracoes de healthcheck. O container `api-mock` ainda e um servico de desenvolvimento e deve ser substituido por uma API persistente em ambiente de produção.
+
 ## Funcionalidades
 
 - Login, cadastro, logout e recuperacao de senha
