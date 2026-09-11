@@ -21,8 +21,8 @@ services:
       - "3000:3000"
     environment:
       JSON_SERVER_URL: http://api-mock:3001
-      FINANCE_APP_URL: http://localhost:3002
-      ADMIN_APP_URL: http://localhost:3003
+      FINANCE_APP_URL: http://finance-app:3002
+      ADMIN_APP_URL: http://admin:3003
     depends_on:
       - api-mock
     volumes:
@@ -38,6 +38,7 @@ services:
     ports:
       - "3002:3002"
     environment:
+      JSON_SERVER_URL: http://api-mock:3001
       PUBLIC_APP_ORIGIN: localhost:3000
     depends_on:
       - api-mock
@@ -54,6 +55,7 @@ services:
     ports:
       - "3003:3003"
     environment:
+      JSON_SERVER_URL: http://api-mock:3001
       PUBLIC_APP_ORIGIN: localhost:3000
     depends_on:
       - api-mock
