@@ -13,6 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "@dash/ui-kit/Input";
+import { Select } from "@dash/ui-kit/Select";
 import Button from "@dash/ui-kit/Button";
 import { useSelector } from "react-redux";
 
@@ -38,7 +39,6 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
         resolver: zodResolver(transactionSchema)
     });
 
-
     async function onSubmit(data: TransactionFormData) {
         try {
             setError(null);
@@ -58,7 +58,7 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
             : [];
 
     return (
-        <div className="rounded-2xl bg-zinc-200 p-6 mt-4">
+        <div className="rounded-2xl bg-zinc-300 p-6 mt-3">
             <h2 className="text-lg font-semibold text-zinc-900">Nova transação</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 p-4">
                 <Input
@@ -68,42 +68,33 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
                     {...register("description")}
                     error={errors.description?.message} />
 
-                <div className="flex flex-col gap-2">
-                    <label htmlFor="type" className="block text-sm font-medium text-gray-700">
-                        Tipo de Transação
-                    </label>
-                    <select
-                        {...register("type")}
-                        className="border border-gray-300 rounded-md p-2">
-                        {options.map((option) => (
+                <Select
+                    label="Tipo de Transação"
+                    {...register("type")}
+                    error={errors.type?.message}
+                >
+                    {options.map((option) => (
+                        <option key={option} value={option}>
+                            {option}
+                        </option>
+                    ))}
+                </Select>
+
+                {subtypeOptions.length > 0 && (
+                    <Select
+                        id="subtype"
+                        label={selectedType === TypeTransaction.INVESTMENT ? "Tipo de investimento" : "Tipo de transferência"}
+                        {...register("subtype")}
+                        defaultValue=""
+                        error={errors.subtype?.message}
+                    >
+                        <option value="">Selecione uma opção</option>
+                        {subtypeOptions.map((option) => (
                             <option key={option} value={option}>
                                 {option}
                             </option>
                         ))}
-                    </select>
-                </div>
-                {errors.type && <span className="text-red-500">{errors.type.message}</span>}
-
-                {subtypeOptions.length > 0 && (
-                    <div className="flex flex-col gap-2">
-                        <label htmlFor="subtype" className="block text-sm font-medium text-gray-700">
-                            {selectedType === TypeTransaction.INVESTMENT ? "Tipo de investimento" : "Tipo de transferência"}
-                        </label>
-                        <select
-                            id="subtype"
-                            {...register("subtype")}
-                            className="border border-gray-300 rounded-md p-2"
-                            defaultValue=""
-                        >
-                            <option value="">Selecione uma opção</option>
-                            {subtypeOptions.map((option) => (
-                                <option key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
-                        </select>
-                        {errors.subtype && <span className="text-red-500">{errors.subtype.message}</span>}
-                    </div>
+                    </Select>
                 )}
 
                 <Input

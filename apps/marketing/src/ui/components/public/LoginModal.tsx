@@ -1,7 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import Modal from "@dash/ui-kit/Modal";
 import { Input } from "@dash/ui-kit/Input";
 import Button from "@dash/ui-kit/Button";
@@ -19,7 +18,6 @@ export function LoginModal({
     onOpenForgotPassword
 }: LoginModalProps) {
     const { login } = useAuth();
-    const router = useRouter();
     const [ error, setError ] = useState<string | null>(null);
     const {
         register,
@@ -36,7 +34,7 @@ export function LoginModal({
             setError(null);
             await login(data.email, data.password);
             reset();
-            router.replace("/dashboard");
+            window.location.assign("/dashboard");
         } catch(err) {
             setError(err instanceof Error ? err.message : "Erro ao realizar login");
         }

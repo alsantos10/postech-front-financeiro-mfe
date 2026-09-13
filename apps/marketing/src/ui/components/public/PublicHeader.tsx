@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Button from '@dash/ui-kit/Button';
 import { useAuth } from '@dash/auth/context/AuthContext';
 import { useState } from 'react';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 interface PublicHeaderProps {
@@ -21,7 +21,7 @@ export function PublicHeader({onOpenLogin, onOpenRegister}: PublicHeaderProps) {
     const goToPanel = () => {
         setIsLoading(true);
         setIsOpen(false);
-        redirect(`/dashboard`);
+        window.location.assign('/dashboard');
     };
 
     const handleNav = async (href: string) => {

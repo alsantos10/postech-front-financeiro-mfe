@@ -9,7 +9,7 @@ export default function InvestmentsPage() {
     const { user } = useAuth();
     
     return (
-        <div className="flex flex-row sm:flex-col sm:gap-2">
+        <div className="flex flex-1 flex-col sm:gap-2 w-full md:py-0">
             <BalanceCard userName={user?.name} />
             <InvestmentsCard />
         </div>

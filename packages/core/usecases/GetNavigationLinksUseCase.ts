@@ -7,7 +7,7 @@ export class GetNavigationLinksUseCase {
       { label: 'Início', href: '/dashboard' },
       { label: 'Transferências', href: '/dashboard/transferences' },
       { label: 'Investimentos', href: '/dashboard/investments' },
-      { label: 'Outros Serviços', href: '/products' },
+      { label: 'Meus Cartões', href: '/dashboard/cards' },
     ];
   }
 }

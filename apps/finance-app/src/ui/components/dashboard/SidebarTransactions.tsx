@@ -64,7 +64,7 @@ export function SidebarTransactions({ type }: SidebarTransactionsProps) {
   }, [loadMore]);
 
   return (
-    <aside className="w-full shrink-0 xl:py-6 pr-4 xl:w-70">
+    <aside className="w-full shrink-0 py-0 px-4 md:py-4 md:p-0 md:pr-4 xl:py-6 xl:w-70">
       <section className="w-full md:w-auto items-center p-4 md:p-6 rounded-xl bg-[#F5F5F5] border-t md:border-t-0 md:border-l border-gray-200 flex flex-col gap-4">
 
         <h2 className="text-2xl font-bold">

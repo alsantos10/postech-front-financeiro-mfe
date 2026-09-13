@@ -11,7 +11,7 @@ export default function DashboardPage() {
     const { createTransaction } = useCreateTransactionWithRedux();
     
     return (
-        <div className="flex flex-row sm:flex-col sm:gap-2">
+        <div className="flex flex-1 flex-col sm:gap-2 w-full md:py-0">
             <BalanceCard userName={user?.name} />
             <NewTransactionCard onCreateTransaction={createTransaction} />
         </div>

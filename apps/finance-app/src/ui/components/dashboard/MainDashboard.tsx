@@ -88,16 +88,15 @@ export default function MainDashboard({ children }: { children: React.ReactNode 
         </aside>
 
         {/* CORPO CENTRAL */}
-        <div className="flex flex-1 flex-col md:flex-row w-full">
+        <div className="flex flex-1 flex-col w-full md:flex-row">
           {/* Centro (690px) */}
-          <main className="w-full xl:w-173 xl:min-w-173 xl:py-6 px-4">
+          <main className="order-1 w-full xl:w-173 xl:min-w-173 py-4 pb-4 px-4">
             {children}
           </main>
 
           {/* Direita (282px) */}
-          <aside className="w-full md:w-auto xl:w-[282] xl:min-w-[282] border-t md:border-t-0 md:border-l border-gray-200">
-            <div className="text-sm font-semibold mb-2">
-
+          <aside className="order-2 w-full md:w-auto xl:w-[282] xl:min-w-[282] border-t md:border-t-0 md:border-l border-gray-200">
+            <div className="text-sm font-semibold mb-4 md:mb-0">
               <SidebarTransactions type={transactionType} />
             </div>
           </aside>

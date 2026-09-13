@@ -54,9 +54,11 @@ export const TransferencesCard = () => {
     }));
 
     return (
-        <div className="w-full shrink-0 xl:py-6">
-            <section className="flex w-full flex-col gap-2 overflow-hidden rounded-xl bg-[#d0d0d0] p-4 text-[#111827] md:p-5">
-                <h2 className="relative z-10 text-xl font-bold">Transferências</h2>
+        <div className="w-full shrink-0 mt-3">
+            <section className="flex w-full flex-col gap-2 overflow-hidden rounded-xl bg-zinc-300 px-6 text-zinc-900 p-6">
+                <div className="mb-4">
+                    <h2 className="relative z-10 text-lg font-semibold text-zinc-900">Transferências</h2>
+                </div>
 
                 <p className="relative z-10 text-md text-[#00536b]">
                     Total: {loading ? 'Carregando...' : `${formatCurrency(statistics.total)}`}
