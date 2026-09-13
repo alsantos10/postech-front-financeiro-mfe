@@ -1,0 +1,93 @@
+"use client";
+
+import { useMemo, useState } from 'react';
+import { usePathname } from "next/navigation";
+import { GetNavigationLinksUseCase } from "@dash/core/usecases/GetNavigationLinksUseCase";
+import { UserMenu } from "@dash/dashboard-ui/UserMenu";
+import { NavbarMobile } from './NavibarMobile';
+
+export default function MainAdmin({ children }: { children: React.ReactNode }) {
+  const [menuAberto, setMenuAberto] = useState(false);
+
+  // Instanciação/Injeção do Caso de Uso (Pode ser feito via Container de DI se preferir)
+  const getLinksUseCase = useMemo(() => new GetNavigationLinksUseCase(), []);
+  const links = useMemo(() => getLinksUseCase.execute(), [getLinksUseCase]);
+
+  const pathname = usePathname();
+
+  const baseLink = "block py-4 font-medium hover:text-custom-green-500 border-b border-transparent hover:border-custom-green-500 transition-colors";
+  const baseLinkDesktop = "block py-4 font-medium hover:text-custom-green-500 border-b hover:border-custom-green-500 last:border-b-0 transition-colors";
+  const activeLink = "text-custom-green-500 border-custom-green-500";
+  const inactiveLink = "border-black";
+
+  return (
+    <div className="min-h-screen flex flex-col bg-[#E4EDE3]">
+
+      {/* HEADER / BARRA PRINCIPAL */}
+      <header className="relative w-full h-16 border-b border-gray-200 bg-[#004D61] px-4 flex items-center justify-between z-50">
+        <div>
+          <button
+            onClick={() => setMenuAberto(!menuAberto)}
+            className="md:hidden p-2 rounded focus:outline-none cursor-pointer text-gray-100 hover:text-gray-900 hover:bg-gray-100"
+            aria-label="Menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuAberto ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+            </svg>
+          </button>
+          {/* MOBILE (Injetando a regra desacoplada) */}
+          <NavbarMobile links={links} isOpen={menuAberto} onClose={() => setMenuAberto(false)} />
+        </div>
+
+        <div className="flex items-center gap-4">
+          <UserMenu />
+        </div>
+      </header>
+
+      {/* TABLET */}
+      <div className="hidden md:flex xl:hidden w-full justify-center border-b border-gray-200 py-3">
+        <nav className="w-150 flex justify-between items-center px-4">
+          {links.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <a key={link.href} href={link.href}
+                    className={`${baseLink} ${isActive ? activeLink : inactiveLink}`}>
+                    {link.label}
+                  </a>
+                )
+              })}
+        </nav>
+      </div>
+
+      {/* ÁREA DO CONTEÚDO (Grid Desktop 180px | 690px | 282px) */}
+      <div className="flex-1 w-full max-w-[1152] mx-auto flex flex-col xl:flex-row">
+
+        {/* DESKTOP: Esquerda (180px) */}
+        <aside className="hidden xl:block py-6 text-center">
+          <div className="mb-6 block bg-[#F5F5F5] pt-6 w-45 min-w-45 rounded-lg mx-auto h-full">
+            <nav className="flex flex-col justify-center pr-6 pl-6">
+              {links.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <a key={link.href} href={link.href}
+                    className={`${baseLinkDesktop} ${isActive ? activeLink : inactiveLink}`}>
+                    {link.label}
+                  </a>
+                )
+              })}
+            </nav>
+          </div>
+        </aside>
+
+        {/* CORPO CENTRAL */}
+        <div className="flex flex-1 flex-col w-full md:flex-row">
+          {/* Centro (690px) */}
+          <main className="order-1 w-full xl:w-173 xl:min-w-173 py-4 pb-4 px-4">
+            {children}
+          </main>
+        </div>
+
+      </div>
+    </div>
+  );
+}

@@ -57,4 +57,18 @@ export class NextAuthRepository implements AuthRepository {
         return response.json();
     }
 
+    async updateProfile(name?: string, password?: string): Promise<User> {
+        const response = await fetch("/api/auth/profile", {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, password }),
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new AuthError(error.message || "Erro ao atualizar perfil");
+        }
+
+        return response.json();
+    }
 }

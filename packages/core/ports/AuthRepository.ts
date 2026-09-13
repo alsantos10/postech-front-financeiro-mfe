@@ -6,4 +6,5 @@ export interface AuthRepository {
     logout(): Promise<void>;
     forgotPassword(email: string, newPassword: string): Promise<void>;
     getProfile(): Promise<User>;
+    updateProfile(name?: string, password?: string): Promise<User>;
 }

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { NavigationLink } from '@dash/core/entities/NavigationLink';
 
 interface NavbarMobileProps {
@@ -17,7 +16,7 @@ export function NavbarMobile({ links, isOpen, onClose }: NavbarMobileProps) {
     >
       <nav className="flex flex-col">
         {links.map((link, index) => (
-          <Link 
+          <a 
             key={link.href} 
             href={link.href}
             onClick={onClose}
@@ -26,7 +25,7 @@ export function NavbarMobile({ links, isOpen, onClose }: NavbarMobileProps) {
             }`}
           >
             {link.label}
-          </Link>
+          </a>
         ))}
       </nav>
     </div>

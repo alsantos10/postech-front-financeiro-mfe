@@ -1,14 +1,21 @@
+import { DashboardProviders } from "@/ui/components/DashboardProviders";
+import { AuthProvider } from "@dash/auth/context/AuthContext";
 import { AuthGuard } from "@dash/dashboard-ui/AuthGuard";
 import { DashboardFooter } from "@dash/dashboard-ui/DashboardFooter";
 
+interface Props {
+    children: React.ReactNode;
+}
 
 export default function AdminLayout({
-    children,
-}: {children: React.ReactNode}) {
+    children
+}: Props) {
     return (
         <AuthGuard>
-            {children}
-            <DashboardFooter />
+            <AuthProvider>
+                <DashboardProviders children={children} />
+                <DashboardFooter />
+            </AuthProvider>
         </AuthGuard>
     );
 }

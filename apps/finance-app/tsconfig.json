@@ -16,7 +16,7 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         ".next/dev/types/**/*.ts",
-        "**/*.mts",
+        "**/*.mts", "../../packages/dashboard-ui/MainDashboard.tsx", "../../packages/dashboard-ui/NavibarMobile.tsx", "../../packages/dashboard-ui/SidebarTransactions.tsx",
     ],
     "exclude": ["node_modules"]
 }

@@ -13,7 +13,7 @@
       "id": "iSX7h7u9Ijw"
     },
     {
-      "name": "Ze Mane",
+      "name": "José Mane da Silva",
       "email": "ze@mane.com",
       "password": "123456",
       "id": "L6HYCWwTlGY"
@@ -427,6 +427,14 @@
       "type": "DEPOSITO",
       "transactionDate": "2026-09-08T04:00:09.682Z",
       "id": "KgTD7Nz"
+    },
+    {
+      "userId": "L6HYCWwTlGY",
+      "description": "dsad",
+      "amount": 12,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-09-13T06:10:29.026Z",
+      "id": "EkYTZ4w"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

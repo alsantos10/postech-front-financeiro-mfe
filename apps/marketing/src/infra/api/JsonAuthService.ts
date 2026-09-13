@@ -35,6 +35,23 @@ export async function createUser(name: string, email: string, password: string):
     return { id: user.id, name: user.name, email: user.email };
 }
 
+export async function updateUserProfile(userId: string, changes: { name?: string; password?: string }): Promise<User> {
+    const response = await fetch(`${JSON_SERVER_URL}/users/${encodeURIComponent(userId)}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(changes),
+    });
+
+    if (!response.ok) {
+        throw new AuthError("Erro ao atualizar perfil");
+    }
+
+    const userRes: JsonUser = await response.json();
+    return { id: userRes.id, name: userRes.name, email: userRes.email };
+}
+
 export async function updatePassword(user: User, password: string): Promise<User> {
     const response = await fetch(`${JSON_SERVER_URL}/users/${user.id}`, {
         method: 'PATCH',

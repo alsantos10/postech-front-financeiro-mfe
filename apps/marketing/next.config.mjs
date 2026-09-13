@@ -14,6 +14,18 @@ const nextConfig = {
     return {
       fallback: [
         {
+          source: "/admin",
+          destination: `${adminAppUrl}/admin`,
+        },
+        {
+          source: "/admin/:path*",
+          destination: `${adminAppUrl}/admin/:path*`,
+        },
+        {
+          source: "/admin-static/:path*",
+          destination: `${adminAppUrl}/admin-static/:path*`,
+        },
+        {
           source: "/api/transactions",
           destination: `${financeAppUrl}/api/transactions`,
         },
@@ -36,18 +48,6 @@ const nextConfig = {
         {
           source: "/finance-static/:path*",
           destination: `${financeAppUrl}/finance-static/:path*`,
-        },
-        {
-          source: "/admin",
-          destination: `${adminAppUrl}/admin`,
-        },
-        {
-          source: "/admin/:path*",
-          destination: `${adminAppUrl}/admin/:path*`,
-        },
-        {
-          source: "/admin-static/:path*",
-          destination: `${adminAppUrl}/admin-static/:path*`,
         },
       ],
     };

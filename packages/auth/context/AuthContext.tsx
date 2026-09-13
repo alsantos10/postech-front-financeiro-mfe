@@ -12,6 +12,7 @@ interface AuthContextData {
     register: (name: string, email: string, password: string) => Promise<void>;
     logout: () => Promise<void>;
     forgotPassword: (email: string, password: string, passwordConfirm: string) => Promise<void>;
+    updateProfile: (name?: string, password?: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextData | undefined>(undefined);
@@ -37,6 +38,11 @@ export function AuthProvider({children}: {children: ReactNode}) {
     const register = useCallback(async (name: string, email: string, password: string) => {
         await authRepository.register(name, email, password);
     }, []);
+
+    const updateProfile = useCallback(async (name?: string, password?: string) => {
+        const updatedUser = await authRepository.updateProfile(name, password);
+        setUser(updatedUser);
+    }, []);
     
     const logout = useCallback(async () => {
         await authRepository.logout();
@@ -59,7 +65,8 @@ export function AuthProvider({children}: {children: ReactNode}) {
                 login,
                 register,
                 logout,
-                forgotPassword
+                forgotPassword,
+                updateProfile,
             }}>
             {children}
         </AuthContext.Provider>

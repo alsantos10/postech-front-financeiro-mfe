@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import store from "@/core/stores";
 import { Provider } from "react-redux";
 import { TransactionProvider } from "@/ui/context/TransactionContext";
-import MainDashboard from "./MainDashboard";
+import MainDashboard from "@dash/dashboard-ui/MainDashboard";
 
 interface DashboardProvidersProps {
     children: ReactNode;

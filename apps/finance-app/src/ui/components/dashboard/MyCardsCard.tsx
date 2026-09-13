@@ -33,7 +33,7 @@ export function MyCardsCard({ cards }: MyCardsCardProps) {
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 md:flex gap-5 justify-items-center">
+              <div className="grid grid-cols-1 xl:flex gap-5 justify-items-center">
                 <div className="justify-center">
                   <div className="relative rounded-[10px] px-5 py-6 text-white shadow-md w-78 h-40"
                     style={{ background: card.color }}

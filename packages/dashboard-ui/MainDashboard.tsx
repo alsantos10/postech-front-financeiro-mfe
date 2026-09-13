@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GetNavigationLinksUseCase } from "@dash/core/usecases/GetNavigationLinksUseCase";
 import { TypeTransaction } from "@dash/core/entities/Transactions";
-import { SidebarTransactions } from "./SidebarTransactions";
 import { UserMenu } from "@dash/dashboard-ui/UserMenu";
-import { NavbarMobile } from '@/ui/components/dashboard/NavibarMobile';
+import { NavbarMobile } from './NavibarMobile';
+import { SidebarTransactions } from './SidebarTransactions';
 
 export default function MainDashboard({ children }: { children: React.ReactNode }) {
   const [menuAberto, setMenuAberto] = useState(false);
@@ -58,10 +58,10 @@ export default function MainDashboard({ children }: { children: React.ReactNode 
           {links.map((link) => {
                 const isActive = pathname === link.href;
                 return (
-                  <Link key={link.href} href={link.href}
+                  <a key={link.href} href={link.href}
                     className={`${baseLink} ${isActive ? activeLink : inactiveLink}`}>
                     {link.label}
-                  </Link>
+                  </a>
                 )
               })}
         </nav>

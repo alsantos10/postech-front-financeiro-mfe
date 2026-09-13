@@ -9,6 +9,7 @@ export async function setSessionCookie(email: string): Promise<void> {
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
         path: "/",
+        domain: "localhost",
         maxAge: 60 * 60 * 24
     });
 }
