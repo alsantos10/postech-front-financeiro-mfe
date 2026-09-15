@@ -34,6 +34,17 @@ interface CreateTransactionParams {
     limit?: number;
 }
 
+interface DeleteTransactionParams {
+    user: User;
+    transactionId: string;
+}
+
+interface UpdateTransactionParams {
+    user: User;
+    transactionId: string;
+    amount: number;
+}
+
 const repository = new NextTransactionRepository();
 
 export const fetchTransactionsAsync = createAsyncThunk(
@@ -67,6 +78,44 @@ export const createTransactionAsync = createAsyncThunk(
     }
 );
 
+export const updateTransactionAsync = createAsyncThunk(
+    "transactions/updateTransaction",
+    async ({ user, transactionId, amount }: UpdateTransactionParams, { dispatch }) => {
+        await repository.updateTransactionForUser(transactionId, { amount });
+        if (typeof window !== "undefined") {
+            window.dispatchEvent(new Event("balance-updated"));
+        }
+        await dispatch(fetchTransactionsAsync({
+            user,
+            page: 1,
+            limit: 10,
+            sort: "",
+            order: OrderType.ASC,
+            term: "",
+            append: false,
+        })).unwrap();
+    }
+);
+
+export const deleteTransactionAsync = createAsyncThunk(
+    "transactions/deleteTransaction",
+    async ({ user, transactionId }: DeleteTransactionParams, { dispatch }) => {
+        await repository.deleteTransactionForUser(user.id, transactionId);
+        if (typeof window !== "undefined") {
+            window.dispatchEvent(new Event("balance-updated"));
+        }
+        await dispatch(fetchTransactionsAsync({
+            user,
+            page: 1,
+            limit: 10,
+            sort: "",
+            order: OrderType.ASC,
+            term: "",
+            append: false,
+        })).unwrap();
+    }
+);
+
 const initialState: TransactionsState = {
     items: [], loading: false, error: null, total: 0,
     page: 1, limit: 10, totalPages: 1, account: null
@@ -78,7 +127,14 @@ const transactionsSlice = createSlice({
     reducers: {
         setPage: (state, action: PayloadAction<number>) => { state.page = action.payload; },
         setLimit: (state, action: PayloadAction<number>) => { state.limit = action.payload; },
-        clearError: (state) => { state.error = null; }
+        clearError: (state) => { state.error = null; },
+        clearTransactions: (state) => {
+            state.items = [];
+            state.total = 0;
+            state.page = 1;
+            state.totalPages = 1;
+            state.account = null;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -110,9 +166,31 @@ const transactionsSlice = createSlice({
             .addCase(createTransactionAsync.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message || "Erro ao criar transação";
+            })
+            .addCase(updateTransactionAsync.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(updateTransactionAsync.fulfilled, (state) => {
+                state.loading = false;
+            })
+            .addCase(updateTransactionAsync.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message || "Erro ao atualizar transação";
+            })
+            .addCase(deleteTransactionAsync.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(deleteTransactionAsync.fulfilled, (state) => {
+                state.loading = false;
+            })
+            .addCase(deleteTransactionAsync.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message || "Erro ao excluir transação";
             });
     }
 });
 
-export const { setPage, setLimit, clearError } = transactionsSlice.actions;
+export const { setPage, setLimit, clearError, clearTransactions } = transactionsSlice.actions;
 export default transactionsSlice.reducer;

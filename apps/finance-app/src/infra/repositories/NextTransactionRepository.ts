@@ -56,7 +56,16 @@ export class NextTransactionRepository implements TransactionRepository {
         return response.json();
     }
 
-    deleteTransactionForUser(userId: string, transactionId: string): Promise<void> {
-        throw new Error("Method not implemented.");
+    async deleteTransactionForUser(userId: string, transactionId: string): Promise<void> {
+        const response = await fetch(`/api/transactions?id=${transactionId}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ userId })
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new TransactionError(error.message || "Erro ao excluir transação");
+        }
     }
 }

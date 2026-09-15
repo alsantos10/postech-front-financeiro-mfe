@@ -147,3 +147,46 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json(toTransaction(await response.json()), { status: 201 });
 }
+
+export async function DELETE(request: NextRequest) {
+  // 1. Valida se o usuário está logado
+  const user = await getSessionUser();
+  if (!user) {
+    return NextResponse.json({ message: "Usuário não autenticado" }, { status: 401 });
+  }
+
+  // 2. Captura o ID da transação enviado na URL (ex: /api/transactions?id=123)
+  const searchParams = request.nextUrl.searchParams;
+  const transactionId = searchParams.get("id");
+
+  if (!transactionId) {
+    return NextResponse.json({ message: "O ID da transação é obrigatório" }, { status: 400 });
+  }
+
+  // 3. (Opcional) Verifica no JSON Server se a transação existe e pertence ao usuário logado
+  const checkResponse = await fetch(`${JSON_SERVER_URL}/transactions/${transactionId}`, {
+    cache: "no-store",
+  });
+  
+  if (!checkResponse.ok) {
+    return NextResponse.json({ message: "Transação não encontrada" }, { status: 404 });
+  }
+
+  const transactionData = (await checkResponse.json()) as JsonTransaction;
+  if (transactionData.userId !== user.id) {
+    return NextResponse.json({ message: "Você não tem permissão para excluir esta transação" }, { status: 403 });
+  }
+
+  // 4. Executa a exclusão no JSON Server usando o método DELETE do HTTP
+  const deleteResponse = await fetch(`${JSON_SERVER_URL}/transactions/${transactionId}`, {
+    method: "DELETE",
+  });
+
+  if (!deleteResponse.ok) {
+    return NextResponse.json({ message: "Erro ao excluir transação no banco" }, { status: 502 });
+  }
+
+  // 5. Retorna sucesso (vazio ou mensagem de sucesso)
+  return NextResponse.json({ message: "Transação excluída com sucesso" }, { status: 200 });
+}
+

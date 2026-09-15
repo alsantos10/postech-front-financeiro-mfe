@@ -64,7 +64,7 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
                     <select
                         {...register("type")}
                         className="border border-gray-300 rounded-md p-2">
-                        {options.map((option) => (
+                        {options.map((option: TypeTransaction) => (
                             <option key={option} value={option}>
                                 {option}
                             </option>

@@ -51,7 +51,7 @@
       "userId": "L6HYCWwTlGY",
       "type": "INVESTIMENTO",
       "subtype": "Tesouro Direto",
-      "amount": 200,
+      "amount": 0,
       "transactionDate": "2023-01-02T00:00:00Z",
       "description": "Transaction 2"
     },
@@ -67,7 +67,7 @@
       "id": "4",
       "userId": "L6HYCWwTlGY",
       "type": "DEPOSITO",
-      "amount": 400,
+      "amount": 405,
       "transactionDate": "2023-01-04T00:00:00Z",
       "description": "Transaction 4"
     },
@@ -81,7 +81,7 @@
     },
     {
       "description": "112121",
-      "amount": 11,
+      "amount": 0.1,
       "type": "DEPOSITO",
       "transactionDate": "2026-08-07T05:10:57.630Z",
       "userId": "L6HYCWwTlGY",
@@ -89,7 +89,7 @@
     },
     {
       "description": "dsadsa",
-      "amount": 221,
+      "amount": 10,
       "type": "DEPOSITO",
       "transactionDate": "2026-08-07T05:12:10.820Z",
       "userId": "L6HYCWwTlGY",
@@ -121,7 +121,7 @@
     },
     {
       "description": "Agora Vai",
-      "amount": 444,
+      "amount": 443.97,
       "type": "DEPOSITO",
       "transactionDate": "2026-08-08T07:19:20.137Z",
       "userId": "L6HYCWwTlGY",
@@ -297,62 +297,6 @@
       "id": "6ywGmbUIkvM"
     },
     {
-      "description": "Primeira",
-      "amount": 20,
-      "type": "DEPOSITO",
-      "transactionDate": "2026-08-31T05:00:53.338Z",
-      "userId": "XidQTZrs0Jo",
-      "id": "KaD5Rp8TYhU"
-    },
-    {
-      "description": "iuiui",
-      "amount": 10,
-      "type": "TRANSFERENCIA",
-      "transactionDate": "2026-08-31T05:03:15.541Z",
-      "userId": "XidQTZrs0Jo",
-      "id": "lqyW2RgNzzM"
-    },
-    {
-      "description": "Aha",
-      "amount": 13,
-      "type": "TRANSFERENCIA",
-      "transactionDate": "2026-08-31T05:14:08.283Z",
-      "userId": "XidQTZrs0Jo",
-      "id": "ECt4O_kj07Y"
-    },
-    {
-      "description": "we",
-      "amount": 33,
-      "type": "DEPOSITO",
-      "transactionDate": "2026-08-31T05:16:43.100Z",
-      "userId": "XidQTZrs0Jo",
-      "id": "lXB80gLTGKo"
-    },
-    {
-      "description": "ww",
-      "amount": 2,
-      "type": "DEPOSITO",
-      "transactionDate": "2026-08-31T05:19:30.342Z",
-      "userId": "XidQTZrs0Jo",
-      "id": "4p6TsVJunf0"
-    },
-    {
-      "description": "qwq",
-      "amount": 4,
-      "type": "DEPOSITO",
-      "transactionDate": "2026-08-31T05:19:41.638Z",
-      "userId": "XidQTZrs0Jo",
-      "id": "vM4vVHy6v2U"
-    },
-    {
-      "description": "dsds",
-      "amount": 12,
-      "type": "DEPOSITO",
-      "transactionDate": "2026-08-31T05:27:31.038Z",
-      "userId": "XidQTZrs0Jo",
-      "id": "iySaovghVkw"
-    },
-    {
       "description": "trtrty",
       "amount": 14,
       "type": "DEPOSITO",
@@ -435,6 +379,31 @@
       "type": "DEPOSITO",
       "transactionDate": "2026-09-13T06:10:29.026Z",
       "id": "EkYTZ4w"
+    },
+    {
+      "userId": "XidQTZrs0Jo",
+      "description": "dsd",
+      "amount": 232,
+      "type": "INVESTIMENTO",
+      "subtype": "Fundos de investimento",
+      "transactionDate": "2026-09-15T04:39:43.951Z",
+      "id": "-mb9GJZ"
+    },
+    {
+      "userId": "XidQTZrs0Jo",
+      "description": "ewq",
+      "amount": 323,
+      "type": "DEPOSITO",
+      "transactionDate": "2026-09-15T04:40:22.651Z",
+      "id": "bzAP_dL"
+    },
+    {
+      "userId": "XidQTZrs0Jo",
+      "description": "awq",
+      "amount": 32,
+      "type": "PAGAMENTO",
+      "transactionDate": "2026-09-15T04:56:57.603Z",
+      "id": "udKSKz_"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
