@@ -43,7 +43,9 @@ export function NewTransactionCard({ onCreateTransaction }: NewTransactionCardPr
         try {
             setError(null);
             await onCreateTransaction(data.description, data.amount, data.type, data.subtype);
-            reset();
+            reset({
+                type: TypeTransaction.DEPOSIT
+            });
         } catch (err) {
             setError(err instanceof Error ? err.message : "Erro ao realizar login");
         }

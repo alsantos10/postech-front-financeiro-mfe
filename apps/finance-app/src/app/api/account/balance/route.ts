@@ -1,3 +1,4 @@
+import { TypeTransaction } from "@dash/core/entities/Transactions";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -38,7 +39,7 @@ export async function GET() {
   }>;
   const balance = transactions.reduce(
     (total, transaction) =>
-      transaction.type === "DEPOSITO"
+     ([TypeTransaction.DEPOSIT.toString(), TypeTransaction.INVESTMENT.toString()]).includes(transaction.type)
         ? total + transaction.amount
         : total - transaction.amount,
     0,

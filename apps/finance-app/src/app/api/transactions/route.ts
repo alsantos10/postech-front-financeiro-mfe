@@ -98,7 +98,7 @@ export async function GET(request: NextRequest) {
   const items = transactions.slice(start, start + limit).map(toTransaction);
   const balance = transactions.reduce(
     (totalAmount, transaction) =>
-      transaction.type === "DEPOSITO"
+      ([TypeTransaction.DEPOSIT.toString(), TypeTransaction.INVESTMENT.toString()].includes(transaction.type))
         ? totalAmount + transaction.amount
         : totalAmount - transaction.amount,
     0,

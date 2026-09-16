@@ -93,7 +93,7 @@ export function CardTransactionGrid({
                                         ? 'text-green-600'
                                         : 'text-red-600'
                                         }`}>
-                                        {(TypeTransaction.DEPOSIT, TypeTransaction.INVESTMENT).includes(item.type)
+                                        {[TypeTransaction.DEPOSIT.toString(), TypeTransaction.INVESTMENT.toString()].includes(item.type)
                                             ? '+'
                                             : '-'}{formatCurrency(item.amount)}
                                     </span>
