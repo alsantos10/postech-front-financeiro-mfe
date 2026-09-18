@@ -166,8 +166,6 @@ Para ambientes produtivos, a imagem precisa ser publicada em um registry como GH
 
 ## Docker
 
-A pasta `docker/` esta reservada para a configuracao de conteinerizacao, mas ainda nao possui Dockerfile, `docker-compose.yml` ou scripts de inicializacao versionados.
-
 No estado atual, o fluxo oficialmente documentado e a execucao local com Node.js, npm e JSON Server. A configuracao Docker devera definir posteriormente:
 
 - imagens dos apps Next.js e do JSON Server;
@@ -190,7 +188,6 @@ packages/
 	core/
 	dashboard-ui/
 	ui-kit/
-docker/
 ```
 
 ## Observacoes
