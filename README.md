@@ -156,7 +156,7 @@ Para ambientes produtivos, a imagem precisa ser publicada em um registry como GH
 
 - Login, cadastro, logout e recuperacao de senha
 - Redirecionamento de usuarios autenticados para o dashboard
-- Consulta, criacao, alteração e excusao de transacoes
+- Consulta, criacao, alteração e exclusão de transacoes
 - Tipos de transacao: deposito, transferencia, investimento e pagamento
 - Subtipos de transferencias: PIX, DOC e TED
 - Subtipos de investimentos: Fundos de investimento, Tesouro Direto, Previdencia Privada e Bolsa de Valores
