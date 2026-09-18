@@ -1,4 +1,4 @@
-# Postech Financeiro MFE
+⁸# Postech Financeiro MFE
 
 Aplicacao web de gerenciamento financeiro desenvolvida com Next.js e organizada como um monorepo de micro frontends. O projeto possui uma aplicacao publica de marketing, um dashboard financeiro, um modulo administrativo e uma API mock baseada em JSON Server.
 
@@ -156,13 +156,14 @@ Para ambientes produtivos, a imagem precisa ser publicada em um registry como GH
 
 - Login, cadastro, logout e recuperacao de senha
 - Redirecionamento de usuarios autenticados para o dashboard
-- Consulta e criacao de transacoes
+- Consulta, criacao, alteração e excusao de transacoes
 - Tipos de transacao: deposito, transferencia, investimento e pagamento
 - Subtipos de transferencias: PIX, DOC e TED
 - Subtipos de investimentos: Fundos de investimento, Tesouro Direto, Previdencia Privada e Bolsa de Valores
 - Extrato filtrado por tipo com carregamento incremental ao rolar a pagina
 - Graficos de distribuicao de transferencias e investimentos
 - Saldo consultado separadamente, independente do filtro do extrato
+- Alteração de dados do usuário logado
 
 ## Docker
 
